@@ -1,0 +1,118 @@
+ARM GAS  /tmp/cc68P2Q0.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"fatfs_platform.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.BSP_PlatformIsDetected,"ax",%progbits
+  16              		.align	1
+  17              		.global	BSP_PlatformIsDetected
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	BSP_PlatformIsDetected:
+  25              	.LFB72:
+  26              		.file 1 "Src/fatfs_platform.c"
+   1:Src/fatfs_platform.c **** /**
+   2:Src/fatfs_platform.c ****   ******************************************************************************
+   3:Src/fatfs_platform.c ****   * @file           : fatfs_platform.c
+   4:Src/fatfs_platform.c ****   * @brief          : fatfs_platform source file
+   5:Src/fatfs_platform.c ****   ******************************************************************************
+   6:Src/fatfs_platform.c ****   * @attention
+   7:Src/fatfs_platform.c ****   *
+   8:Src/fatfs_platform.c ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+   9:Src/fatfs_platform.c ****   * All rights reserved.</center></h2>
+  10:Src/fatfs_platform.c ****   *
+  11:Src/fatfs_platform.c ****   * This software component is licensed by ST under Ultimate Liberty license
+  12:Src/fatfs_platform.c ****   * SLA0044, the "License"; You may not use this file except in compliance with
+  13:Src/fatfs_platform.c ****   * the License. You may obtain a copy of the License at:
+  14:Src/fatfs_platform.c ****   *                             www.st.com/SLA0044
+  15:Src/fatfs_platform.c ****   *
+  16:Src/fatfs_platform.c ****   ******************************************************************************
+  17:Src/fatfs_platform.c **** */
+  18:Src/fatfs_platform.c **** #include "fatfs_platform.h"
+  19:Src/fatfs_platform.c **** 
+  20:Src/fatfs_platform.c **** uint8_t	BSP_PlatformIsDetected(void) {
+  27              		.loc 1 20 38 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  21:Src/fatfs_platform.c ****     uint8_t status = SD_PRESENT;
+  36              		.loc 1 21 5 view .LVU1
+  37              	.LVL0:
+ARM GAS  /tmp/cc68P2Q0.s 			page 2
+
+
+  22:Src/fatfs_platform.c ****     /* Check SD card detect pin */
+  23:Src/fatfs_platform.c ****     if(HAL_GPIO_ReadPin(SD_DETECT_GPIO_PORT, SD_DETECT_PIN) != GPIO_PIN_RESET)
+  38              		.loc 1 23 5 view .LVU2
+  39              		.loc 1 23 8 is_stmt 0 view .LVU3
+  40 0002 0221     		movs	r1, #2
+  41 0004 0348     		ldr	r0, .L5
+  42 0006 FFF7FEFF 		bl	HAL_GPIO_ReadPin
+  43              	.LVL1:
+  44              		.loc 1 23 7 view .LVU4
+  45 000a 08B9     		cbnz	r0, .L3
+  21:Src/fatfs_platform.c ****     uint8_t status = SD_PRESENT;
+  46              		.loc 1 21 13 view .LVU5
+  47 000c 0120     		movs	r0, #1
+  48              	.L2:
+  49              	.LVL2:
+  24:Src/fatfs_platform.c ****     {
+  25:Src/fatfs_platform.c ****         status = SD_NOT_PRESENT;
+  26:Src/fatfs_platform.c ****     }
+  27:Src/fatfs_platform.c ****     /* USER CODE BEGIN 1 */
+  28:Src/fatfs_platform.c ****     /* user code can be inserted here */
+  29:Src/fatfs_platform.c ****     /* USER CODE END 1 */
+  30:Src/fatfs_platform.c ****     return status;
+  50              		.loc 1 30 5 is_stmt 1 view .LVU6
+  31:Src/fatfs_platform.c **** }
+  51              		.loc 1 31 1 is_stmt 0 view .LVU7
+  52 000e 08BD     		pop	{r3, pc}
+  53              	.LVL3:
+  54              	.L3:
+  25:Src/fatfs_platform.c ****     }
+  55              		.loc 1 25 16 view .LVU8
+  56 0010 0020     		movs	r0, #0
+  57 0012 FCE7     		b	.L2
+  58              	.L6:
+  59              		.align	2
+  60              	.L5:
+  61 0014 00000240 		.word	1073872896
+  62              		.cfi_endproc
+  63              	.LFE72:
+  65              		.text
+  66              	.Letext0:
+  67              		.file 2 "/home/onur/STM32Toolchain/gcc-arm/arm-none-eabi/include/machine/_default_types.h"
+  68              		.file 3 "/home/onur/STM32Toolchain/gcc-arm/arm-none-eabi/include/sys/_stdint.h"
+  69              		.file 4 "Drivers/CMSIS/Device/ST/STM32F2xx/Include/stm32f215xx.h"
+  70              		.file 5 "Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_gpio.h"
+ARM GAS  /tmp/cc68P2Q0.s 			page 3
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 fatfs_platform.c
+     /tmp/cc68P2Q0.s:16     .text.BSP_PlatformIsDetected:0000000000000000 $t
+     /tmp/cc68P2Q0.s:24     .text.BSP_PlatformIsDetected:0000000000000000 BSP_PlatformIsDetected
+     /tmp/cc68P2Q0.s:61     .text.BSP_PlatformIsDetected:0000000000000014 $d
+
+UNDEFINED SYMBOLS
+HAL_GPIO_ReadPin

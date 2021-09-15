@@ -1,0 +1,2255 @@
+ARM GAS  /tmp/ccINzGhC.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32f2xx_hal_rcc_ex.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.HAL_RCCEx_PeriphCLKConfig,"ax",%progbits
+  16              		.align	1
+  17              		.global	HAL_RCCEx_PeriphCLKConfig
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	HAL_RCCEx_PeriphCLKConfig:
+  25              	.LVL0:
+  26              	.LFB72:
+  27              		.file 1 "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c"
+   1:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /**
+   2:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   ******************************************************************************
+   3:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @file    stm32f2xx_hal_rcc_ex.c
+   4:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @author  MCD Application Team
+   5:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @brief   Extension RCC HAL module driver.
+   6:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *          This file provides firmware functions to manage the following 
+   7:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *          functionalities RCC extension peripheral:
+   8:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *           + Extended Peripheral Control functions
+   9:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *  
+  10:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   ******************************************************************************
+  11:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @attention
+  12:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *
+  13:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics.
+  14:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * All rights reserved.</center></h2>
+  15:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *
+  16:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * This software component is licensed by ST under BSD 3-Clause license,
+  17:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * the "License"; You may not use this file except in compliance with the
+  18:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * License. You may obtain a copy of the License at:
+  19:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *                        opensource.org/licenses/BSD-3-Clause
+  20:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *
+  21:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   ******************************************************************************
+  22:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+  23:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+  24:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /* Includes ------------------------------------------------------------------*/
+  25:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** #include "stm32f2xx_hal.h"
+  26:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+  27:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /** @addtogroup STM32F2xx_HAL_Driver
+  28:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @{
+  29:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+  30:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+  31:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /** @defgroup RCCEx RCCEx
+ARM GAS  /tmp/ccINzGhC.s 			page 2
+
+
+  32:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @brief RCCEx HAL module driver
+  33:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @{
+  34:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+  35:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+  36:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** #ifdef HAL_RCC_MODULE_ENABLED
+  37:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+  38:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /* Private typedef -----------------------------------------------------------*/
+  39:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /* Private define ------------------------------------------------------------*/
+  40:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /** @addtogroup RCCEx_Private_Constants
+  41:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @{
+  42:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+  43:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /**
+  44:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @}
+  45:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */ 
+  46:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /* Private macro -------------------------------------------------------------*/
+  47:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /* Private variables ---------------------------------------------------------*/
+  48:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /* Private function prototypes -----------------------------------------------*/
+  49:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /* Private functions ---------------------------------------------------------*/
+  50:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /** @defgroup RCCEx_Exported_Functions RCCEx Exported Functions
+  51:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *  @{
+  52:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+  53:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+  54:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /** @defgroup RCCEx_Exported_Functions_Group1 Extended Peripheral Control functions 
+  55:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  *  @brief  Extended Peripheral Control functions  
+  56:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  *
+  57:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** @verbatim   
+  58:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  ===============================================================================
+  59:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****                 ##### Extended Peripheral Control functions  #####
+  60:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  ===============================================================================
+  61:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     [..]
+  62:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     This subsection provides a set of functions allowing to control the RCC Clocks 
+  63:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     frequencies.
+  64:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     [..] 
+  65:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     (@) Important note: Care must be taken when HAL_RCCEx_PeriphCLKConfig() is used to
+  66:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         select the RTC clock source; in this case the Backup domain will be reset in  
+  67:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         order to modify the RTC Clock source, as consequence RTC registers (including 
+  68:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         the backup registers) and RCC_BDCR register are set to their reset values.
+  69:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       
+  70:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** @endverbatim
+  71:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @{
+  72:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+  73:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+  74:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /**
+  75:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @brief  Initializes the RCC extended peripherals clocks according to the specified parameters i
+  76:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *         RCC_PeriphCLKInitTypeDef.
+  77:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @param  PeriphClkInit pointer to an RCC_PeriphCLKInitTypeDef structure that
+  78:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *         contains the configuration information for the Extended Peripherals clocks(I2S and RTC 
+  79:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *         
+  80:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @note   A caution to be taken when HAL_RCCEx_PeriphCLKConfig() is used to select RTC clock sele
+  81:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *         the Reset of Backup domain will be applied in order to modify the RTC Clock source as c
+  82:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *        domain (RTC and RCC_BDCR register expect BKPSRAM) will be reset
+  83:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *              
+  84:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @retval HAL status
+  85:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+  86:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** HAL_StatusTypeDef HAL_RCCEx_PeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit)
+  87:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** {
+  28              		.loc 1 87 1 view -0
+ARM GAS  /tmp/ccINzGhC.s 			page 3
+
+
+  29              		.cfi_startproc
+  30              		@ args = 0, pretend = 0, frame = 8
+  31              		@ frame_needed = 0, uses_anonymous_args = 0
+  32              		.loc 1 87 1 is_stmt 0 view .LVU1
+  33 0000 30B5     		push	{r4, r5, lr}
+  34              	.LCFI0:
+  35              		.cfi_def_cfa_offset 12
+  36              		.cfi_offset 4, -12
+  37              		.cfi_offset 5, -8
+  38              		.cfi_offset 14, -4
+  39 0002 83B0     		sub	sp, sp, #12
+  40              	.LCFI1:
+  41              		.cfi_def_cfa_offset 24
+  42 0004 0446     		mov	r4, r0
+  88:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   uint32_t tickstart = 0U;
+  43              		.loc 1 88 3 is_stmt 1 view .LVU2
+  44              	.LVL1:
+  89:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   uint32_t tmpreg1 = 0U;
+  45              		.loc 1 89 3 view .LVU3
+  90:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+  91:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Check the parameters */
+  92:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   assert_param(IS_RCC_PERIPHCLOCK(PeriphClkInit->PeriphClockSelection));
+  46              		.loc 1 92 3 view .LVU4
+  93:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   
+  94:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /*---------------------------- I2S configuration ---------------------------*/
+  95:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   if(((PeriphClkInit->PeriphClockSelection & RCC_PERIPHCLK_I2S) == (RCC_PERIPHCLK_I2S))|| \
+  47              		.loc 1 95 3 view .LVU5
+  48              		.loc 1 95 21 is_stmt 0 view .LVU6
+  49 0006 0368     		ldr	r3, [r0]
+  50              		.loc 1 95 5 view .LVU7
+  51 0008 13F0010F 		tst	r3, #1
+  52 000c 08D1     		bne	.L2
+  53              		.loc 1 95 88 discriminator 1 view .LVU8
+  54 000e 082B     		cmp	r3, #8
+  55 0010 06D0     		beq	.L2
+  56              	.LVL2:
+  57              	.L3:
+  96:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****      (PeriphClkInit->PeriphClockSelection == RCC_PERIPHCLK_PLLI2S))
+  97:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+  98:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* check for Parameters */
+  99:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     assert_param(IS_RCC_PLLI2SR_VALUE(PeriphClkInit->PLLI2S.PLLI2SR));
+ 100:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     assert_param(IS_RCC_PLLI2SN_VALUE(PeriphClkInit->PLLI2S.PLLI2SN));
+ 101:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       
+ 102:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Disable the PLLI2S */
+ 103:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     __HAL_RCC_PLLI2S_DISABLE();
+ 104:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Get tick */
+ 105:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     tickstart = HAL_GetTick();
+ 106:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Wait till PLLI2S is disabled */
+ 107:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     while(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLI2SRDY)  != RESET)
+ 108:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 109:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       if((HAL_GetTick() - tickstart ) > PLLI2S_TIMEOUT_VALUE)
+ 110:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 111:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         /* return in case of Timeout detected */
+ 112:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         return HAL_TIMEOUT;
+ 113:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       } 
+ 114:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ 115:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Configure the PLLI2S division factors */
+ARM GAS  /tmp/ccINzGhC.s 			page 4
+
+
+ 116:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* PLLI2S_VCO = f(VCO clock) = f(PLLI2S clock input) * (PLLI2SN/PLLM) */
+ 117:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* I2SCLK = f(PLLI2S clock output) = f(VCO clock) / PLLI2SR */
+ 118:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     __HAL_RCC_PLLI2S_CONFIG(PeriphClkInit->PLLI2S.PLLI2SN , PeriphClkInit->PLLI2S.PLLI2SR);
+ 119:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 120:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Enable the PLLI2S */
+ 121:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     __HAL_RCC_PLLI2S_ENABLE();
+ 122:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Get tick */
+ 123:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     tickstart = HAL_GetTick();
+ 124:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Wait till PLLI2S is ready */
+ 125:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     while(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLI2SRDY)  == RESET)
+ 126:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 127:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       if((HAL_GetTick() - tickstart ) > PLLI2S_TIMEOUT_VALUE)
+ 128:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 129:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         /* return in case of Timeout detected */
+ 130:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         return HAL_TIMEOUT;
+ 131:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       }
+ 132:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ 133:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 134:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /*--------------------------------------------------------------------------*/
+ 135:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   
+ 136:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /*---------------------------- RTC configuration ---------------------------*/
+ 137:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   if(((PeriphClkInit->PeriphClockSelection) & RCC_PERIPHCLK_RTC) == (RCC_PERIPHCLK_RTC))
+  58              		.loc 1 137 3 is_stmt 1 view .LVU9
+  59              		.loc 1 137 21 is_stmt 0 view .LVU10
+  60 0012 2368     		ldr	r3, [r4]
+  61              		.loc 1 137 5 view .LVU11
+  62 0014 13F0040F 		tst	r3, #4
+  63 0018 3BD1     		bne	.L22
+ 138:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 139:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Check for RTC Parameters used to output RTCCLK */
+ 140:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     assert_param(IS_RCC_RTCCLKSOURCE(PeriphClkInit->RTCClockSelection));
+ 141:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 142:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Enable Power Clock*/
+ 143:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     __HAL_RCC_PWR_CLK_ENABLE();
+ 144:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 145:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Enable write access to Backup domain */
+ 146:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     PWR->CR |= PWR_CR_DBP;
+ 147:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 148:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Get tick */
+ 149:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     tickstart = HAL_GetTick();
+ 150:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 151:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     while((PWR->CR & PWR_CR_DBP) == RESET)
+ 152:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 153:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       if((HAL_GetTick() - tickstart ) > RCC_DBP_TIMEOUT_VALUE)
+ 154:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 155:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         return HAL_TIMEOUT;
+ 156:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       }
+ 157:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ 158:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Reset the Backup domain only if the RTC Clock source selection is modified from reset value 
+ 159:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     tmpreg1 = (RCC->BDCR & RCC_BDCR_RTCSEL);
+ 160:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     if((tmpreg1 != 0x00000000U) && ((tmpreg1) != (PeriphClkInit->RTCClockSelection & RCC_BDCR_RTCSE
+ 161:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 162:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* Store the content of BDCR register before the reset of Backup Domain */
+ 163:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       tmpreg1 = (RCC->BDCR & ~(RCC_BDCR_RTCSEL));
+ 164:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* RTC Clock selection can be changed only if the Backup Domain is reset */
+ 165:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       __HAL_RCC_BACKUPRESET_FORCE();
+ 166:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       __HAL_RCC_BACKUPRESET_RELEASE();
+ARM GAS  /tmp/ccINzGhC.s 			page 5
+
+
+ 167:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* Restore the Content of BDCR register */
+ 168:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       RCC->BDCR = tmpreg1;
+ 169:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 170:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* Wait for LSE reactivation if LSE was enable prior to Backup Domain reset */
+ 171:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       if(HAL_IS_BIT_SET(RCC->BDCR, RCC_BDCR_LSEON))
+ 172:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 173:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         /* Get tick */
+ 174:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         tickstart = HAL_GetTick();
+ 175:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         
+ 176:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         /* Wait till LSE is ready */
+ 177:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         while(__HAL_RCC_GET_FLAG(RCC_FLAG_LSERDY) == RESET)
+ 178:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         {
+ 179:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           if((HAL_GetTick() - tickstart ) > RCC_LSE_TIMEOUT_VALUE)
+ 180:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           {
+ 181:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****             return HAL_TIMEOUT;
+ 182:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           }
+ 183:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         }
+ 184:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       }
+ 185:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ 186:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     __HAL_RCC_RTC_CONFIG(PeriphClkInit->RTCClockSelection);
+ 187:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 188:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /*--------------------------------------------------------------------------*/
+ 189:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 190:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   return HAL_OK;
+  64              		.loc 1 190 10 view .LVU12
+  65 001a 0020     		movs	r0, #0
+  66              	.LVL3:
+  67              	.L5:
+ 191:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** }
+  68              		.loc 1 191 1 view .LVU13
+  69 001c 03B0     		add	sp, sp, #12
+  70              	.LCFI2:
+  71              		.cfi_remember_state
+  72              		.cfi_def_cfa_offset 12
+  73              		@ sp needed
+  74 001e 30BD     		pop	{r4, r5, pc}
+  75              	.LVL4:
+  76              	.L2:
+  77              	.LCFI3:
+  78              		.cfi_restore_state
+  99:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     assert_param(IS_RCC_PLLI2SN_VALUE(PeriphClkInit->PLLI2S.PLLI2SN));
+  79              		.loc 1 99 5 is_stmt 1 view .LVU14
+ 100:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       
+  80              		.loc 1 100 5 view .LVU15
+ 103:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Get tick */
+  81              		.loc 1 103 5 view .LVU16
+  82 0020 514B     		ldr	r3, .L27
+  83 0022 0022     		movs	r2, #0
+  84 0024 9A66     		str	r2, [r3, #104]
+ 105:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Wait till PLLI2S is disabled */
+  85              		.loc 1 105 5 view .LVU17
+ 105:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Wait till PLLI2S is disabled */
+  86              		.loc 1 105 17 is_stmt 0 view .LVU18
+  87 0026 FFF7FEFF 		bl	HAL_GetTick
+  88              	.LVL5:
+ 105:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Wait till PLLI2S is disabled */
+  89              		.loc 1 105 17 view .LVU19
+ARM GAS  /tmp/ccINzGhC.s 			page 6
+
+
+  90 002a 0546     		mov	r5, r0
+  91              	.LVL6:
+ 107:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+  92              		.loc 1 107 5 is_stmt 1 view .LVU20
+  93              	.L4:
+ 107:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+  94              		.loc 1 107 10 view .LVU21
+ 107:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+  95              		.loc 1 107 11 is_stmt 0 view .LVU22
+  96 002c 4F4B     		ldr	r3, .L27+4
+  97 002e 1B68     		ldr	r3, [r3]
+ 107:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+  98              		.loc 1 107 10 view .LVU23
+  99 0030 13F0006F 		tst	r3, #134217728
+ 100 0034 06D0     		beq	.L23
+ 109:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 101              		.loc 1 109 7 is_stmt 1 view .LVU24
+ 109:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 102              		.loc 1 109 11 is_stmt 0 view .LVU25
+ 103 0036 FFF7FEFF 		bl	HAL_GetTick
+ 104              	.LVL7:
+ 109:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 105              		.loc 1 109 25 view .LVU26
+ 106 003a 431B     		subs	r3, r0, r5
+ 109:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 107              		.loc 1 109 9 view .LVU27
+ 108 003c 022B     		cmp	r3, #2
+ 109 003e F5D9     		bls	.L4
+ 112:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       } 
+ 110              		.loc 1 112 16 view .LVU28
+ 111 0040 0320     		movs	r0, #3
+ 112 0042 EBE7     		b	.L5
+ 113              	.L23:
+ 118:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 114              		.loc 1 118 5 is_stmt 1 view .LVU29
+ 115 0044 6368     		ldr	r3, [r4, #4]
+ 116              	.LVL8:
+ 117              	.LBB15:
+ 118              	.LBI15:
+ 119              		.file 2 "Drivers/CMSIS/Include/cmsis_gcc.h"
+   1:Drivers/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
+   2:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS compiler GCC header file
+   4:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @version  V5.0.4
+   5:Drivers/CMSIS/Include/cmsis_gcc.h ****  * @date     09. April 2018
+   6:Drivers/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
+   7:Drivers/CMSIS/Include/cmsis_gcc.h **** /*
+   8:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Copyright (c) 2009-2018 Arm Limited. All rights reserved.
+   9:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  10:Drivers/CMSIS/Include/cmsis_gcc.h ****  * SPDX-License-Identifier: Apache-2.0
+  11:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  12:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Licensed under the Apache License, Version 2.0 (the License); you may
+  13:Drivers/CMSIS/Include/cmsis_gcc.h ****  * not use this file except in compliance with the License.
+  14:Drivers/CMSIS/Include/cmsis_gcc.h ****  * You may obtain a copy of the License at
+  15:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+  16:Drivers/CMSIS/Include/cmsis_gcc.h ****  * www.apache.org/licenses/LICENSE-2.0
+  17:Drivers/CMSIS/Include/cmsis_gcc.h ****  *
+ARM GAS  /tmp/ccINzGhC.s 			page 7
+
+
+  18:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Unless required by applicable law or agreed to in writing, software
+  19:Drivers/CMSIS/Include/cmsis_gcc.h ****  * distributed under the License is distributed on an AS IS BASIS, WITHOUT
+  20:Drivers/CMSIS/Include/cmsis_gcc.h ****  * WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  21:Drivers/CMSIS/Include/cmsis_gcc.h ****  * See the License for the specific language governing permissions and
+  22:Drivers/CMSIS/Include/cmsis_gcc.h ****  * limitations under the License.
+  23:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+  24:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  25:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  26:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  27:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  28:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  29:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  30:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  31:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  32:Drivers/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  33:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  34:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Fallback for __has_builtin */
+  35:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef __has_builtin
+  36:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __has_builtin(x) (0)
+  37:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  38:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+  39:Drivers/CMSIS/Include/cmsis_gcc.h **** /* CMSIS compiler specific defines */
+  40:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ASM
+  41:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ASM                                  __asm
+  42:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  43:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __INLINE
+  44:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __INLINE                               inline
+  45:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  46:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_INLINE
+  47:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_INLINE                        static inline
+  48:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  49:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __STATIC_FORCEINLINE                 
+  50:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __STATIC_FORCEINLINE                   __attribute__((always_inline)) static inline
+  51:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif                                           
+  52:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __NO_RETURN
+  53:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __NO_RETURN                            __attribute__((__noreturn__))
+  54:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  55:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __USED
+  56:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __USED                                 __attribute__((used))
+  57:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  58:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __WEAK
+  59:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __WEAK                                 __attribute__((weak))
+  60:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  61:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED
+  62:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED                               __attribute__((packed, aligned(1)))
+  63:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  64:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_STRUCT
+  65:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_STRUCT                        struct __attribute__((packed, aligned(1)))
+  66:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  67:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __PACKED_UNION
+  68:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __PACKED_UNION                         union __attribute__((packed, aligned(1)))
+  69:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  70:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32        /* deprecated */
+  71:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  72:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  73:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  74:Drivers/CMSIS/Include/cmsis_gcc.h ****   struct __attribute__((packed)) T_UINT32 { uint32_t v; };
+ARM GAS  /tmp/ccINzGhC.s 			page 8
+
+
+  75:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  76:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32(x)                  (((struct T_UINT32 *)(x))->v)
+  77:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  78:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_WRITE
+  79:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  80:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  81:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  82:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_WRITE { uint16_t v; };
+  83:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  84:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_WRITE(addr, val)    (void)((((struct T_UINT16_WRITE *)(void *)(addr))-
+  85:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  86:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT16_READ
+  87:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  88:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  89:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  90:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT16_READ { uint16_t v; };
+  91:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+  92:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT16_READ(addr)          (((const struct T_UINT16_READ *)(const void *)(add
+  93:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+  94:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_WRITE
+  95:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+  96:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+  97:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+  98:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_WRITE { uint32_t v; };
+  99:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 100:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_WRITE(addr, val)    (void)((((struct T_UINT32_WRITE *)(void *)(addr))-
+ 101:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 102:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __UNALIGNED_UINT32_READ
+ 103:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic push
+ 104:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wpacked"
+ 105:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic ignored "-Wattributes"
+ 106:Drivers/CMSIS/Include/cmsis_gcc.h ****   __PACKED_STRUCT T_UINT32_READ { uint32_t v; };
+ 107:Drivers/CMSIS/Include/cmsis_gcc.h ****   #pragma GCC diagnostic pop
+ 108:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __UNALIGNED_UINT32_READ(addr)          (((const struct T_UINT32_READ *)(const void *)(add
+ 109:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 110:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __ALIGNED
+ 111:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __ALIGNED(x)                           __attribute__((aligned(x)))
+ 112:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 113:Drivers/CMSIS/Include/cmsis_gcc.h **** #ifndef   __RESTRICT
+ 114:Drivers/CMSIS/Include/cmsis_gcc.h ****   #define __RESTRICT                             __restrict
+ 115:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 116:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 117:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 118:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+ 119:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+ 120:Drivers/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+ 121:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
+ 122:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 123:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 124:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 125:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+ 126:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+ 127:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 128:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 129:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_irq(void)
+ 130:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 131:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+ARM GAS  /tmp/ccINzGhC.s 			page 9
+
+
+ 132:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 133:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 134:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 135:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 136:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+ 137:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+ 138:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 139:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 140:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_irq(void)
+ 141:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 142:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+ 143:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 144:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 145:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 146:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 147:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Control Register
+ 148:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the Control Register.
+ 149:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Control Register value
+ 150:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 151:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_CONTROL(void)
+ 152:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 153:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 154:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 155:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, control" : "=r" (result) );
+ 156:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 157:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 158:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 159:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 160:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 161:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 162:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Control Register (non-secure)
+ 163:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the non-secure Control Register when in secure mode.
+ 164:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               non-secure Control Register value
+ 165:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 166:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_CONTROL_NS(void)
+ 167:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 168:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 169:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 170:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, control_ns" : "=r" (result) );
+ 171:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 172:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 173:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 174:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 175:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 176:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 177:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Control Register
+ 178:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Writes the given value to the Control Register.
+ 179:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
+ 180:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 181:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_CONTROL(uint32_t control)
+ 182:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 183:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR control, %0" : : "r" (control) : "memory");
+ 184:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 185:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 186:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 187:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 188:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  /tmp/ccINzGhC.s 			page 10
+
+
+ 189:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Control Register (non-secure)
+ 190:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Writes the given value to the non-secure Control Register when in secure state.
+ 191:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    control  Control Register value to set
+ 192:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 193:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_CONTROL_NS(uint32_t control)
+ 194:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 195:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR control_ns, %0" : : "r" (control) : "memory");
+ 196:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 197:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 198:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 199:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 200:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 201:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get IPSR Register
+ 202:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the IPSR Register.
+ 203:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               IPSR Register value
+ 204:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 205:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_IPSR(void)
+ 206:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 207:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 208:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 209:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, ipsr" : "=r" (result) );
+ 210:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 211:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 212:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 213:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 214:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 215:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get APSR Register
+ 216:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the APSR Register.
+ 217:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               APSR Register value
+ 218:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 219:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_APSR(void)
+ 220:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 221:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 222:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 223:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, apsr" : "=r" (result) );
+ 224:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 225:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 226:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 227:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 228:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 229:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get xPSR Register
+ 230:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the content of the xPSR Register.
+ 231:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               xPSR Register value
+ 232:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 233:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_xPSR(void)
+ 234:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 235:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 236:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 237:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, xpsr" : "=r" (result) );
+ 238:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 239:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 240:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 241:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 242:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 243:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer
+ 244:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer (PSP).
+ 245:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSP Register value
+ARM GAS  /tmp/ccINzGhC.s 			page 11
+
+
+ 246:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 247:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PSP(void)
+ 248:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 249:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 250:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 251:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psp"  : "=r" (result) );
+ 252:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 253:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 254:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 255:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 256:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 257:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 258:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer (non-secure)
+ 259:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Process Stack Pointer (PSP) when in secure s
+ 260:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSP Register value
+ 261:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 262:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PSP_NS(void)
+ 263:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 264:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 265:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 266:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psp_ns"  : "=r" (result) );
+ 267:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 268:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 269:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 270:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 271:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 272:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 273:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer
+ 274:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer (PSP).
+ 275:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfProcStack  Process Stack Pointer value to set
+ 276:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 277:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PSP(uint32_t topOfProcStack)
+ 278:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 279:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psp, %0" : : "r" (topOfProcStack) : );
+ 280:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 281:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 282:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 283:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 284:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 285:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
+ 286:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Process Stack Pointer (PSP) when in secure sta
+ 287:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfProcStack  Process Stack Pointer value to set
+ 288:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 289:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PSP_NS(uint32_t topOfProcStack)
+ 290:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 291:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psp_ns, %0" : : "r" (topOfProcStack) : );
+ 292:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 293:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 294:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 295:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 296:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 297:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer
+ 298:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Main Stack Pointer (MSP).
+ 299:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSP Register value
+ 300:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 301:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSP(void)
+ 302:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ARM GAS  /tmp/ccINzGhC.s 			page 12
+
+
+ 303:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 304:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 305:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp" : "=r" (result) );
+ 306:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 307:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 308:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 309:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 310:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 311:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 312:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer (non-secure)
+ 313:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Main Stack Pointer (MSP) when in secure stat
+ 314:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSP Register value
+ 315:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 316:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_MSP_NS(void)
+ 317:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 318:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 319:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 320:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msp_ns" : "=r" (result) );
+ 321:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 322:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 323:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 324:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 325:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 326:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 327:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer
+ 328:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Main Stack Pointer (MSP).
+ 329:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfMainStack  Main Stack Pointer value to set
+ 330:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 331:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_MSP(uint32_t topOfMainStack)
+ 332:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 333:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR msp, %0" : : "r" (topOfMainStack) : );
+ 334:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 335:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 336:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 337:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 338:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 339:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer (non-secure)
+ 340:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Main Stack Pointer (MSP) when in secure state.
+ 341:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfMainStack  Main Stack Pointer value to set
+ 342:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 343:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_MSP_NS(uint32_t topOfMainStack)
+ 344:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 345:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR msp_ns, %0" : : "r" (topOfMainStack) : );
+ 346:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 347:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 348:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 349:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 350:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 351:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 352:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Stack Pointer (non-secure)
+ 353:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Stack Pointer (SP) when in secure state.
+ 354:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               SP Register value
+ 355:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 356:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_SP_NS(void)
+ 357:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 358:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 359:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccINzGhC.s 			page 13
+
+
+ 360:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, sp_ns" : "=r" (result) );
+ 361:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 362:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 363:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 364:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 365:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 366:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Stack Pointer (non-secure)
+ 367:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Stack Pointer (SP) when in secure state.
+ 368:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    topOfStack  Stack Pointer value to set
+ 369:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 370:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_SP_NS(uint32_t topOfStack)
+ 371:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 372:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR sp_ns, %0" : : "r" (topOfStack) : );
+ 373:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 374:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 375:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 376:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 377:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 378:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Priority Mask
+ 379:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current state of the priority mask bit from the Priority Mask Register.
+ 380:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Priority Mask value
+ 381:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 382:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PRIMASK(void)
+ 383:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 384:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 385:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 386:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, primask" : "=r" (result) :: "memory");
+ 387:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 388:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 389:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 390:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 391:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 392:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 393:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Priority Mask (non-secure)
+ 394:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current state of the non-secure priority mask bit from the Priority Mask Reg
+ 395:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Priority Mask value
+ 396:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 397:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PRIMASK_NS(void)
+ 398:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 399:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 400:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 401:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, primask_ns" : "=r" (result) :: "memory");
+ 402:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 403:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 404:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 405:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 406:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 407:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 408:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Priority Mask
+ 409:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Priority Mask Register.
+ 410:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
+ 411:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 412:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PRIMASK(uint32_t priMask)
+ 413:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 414:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR primask, %0" : : "r" (priMask) : "memory");
+ 415:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 416:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccINzGhC.s 			page 14
+
+
+ 417:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 418:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 419:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 420:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Priority Mask (non-secure)
+ 421:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Priority Mask Register when in secure state.
+ 422:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    priMask  Priority Mask
+ 423:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 424:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PRIMASK_NS(uint32_t priMask)
+ 425:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 426:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR primask_ns, %0" : : "r" (priMask) : "memory");
+ 427:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 428:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 429:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 430:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 431:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+ 432:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+ 433:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
+ 434:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 435:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable FIQ
+ 436:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Enables FIQ interrupts by clearing the F-bit in the CPSR.
+ 437:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 438:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 439:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __enable_fault_irq(void)
+ 440:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 441:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie f" : : : "memory");
+ 442:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 443:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 444:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 445:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 446:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable FIQ
+ 447:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Disables FIQ interrupts by setting the F-bit in the CPSR.
+ 448:Drivers/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+ 449:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 450:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __disable_fault_irq(void)
+ 451:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 452:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid f" : : : "memory");
+ 453:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 454:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 455:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 456:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 457:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Base Priority
+ 458:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Base Priority register.
+ 459:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Base Priority register value
+ 460:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 461:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_BASEPRI(void)
+ 462:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 463:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 464:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 465:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri" : "=r" (result) );
+ 466:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 467:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 468:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 469:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 470:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 471:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 472:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Base Priority (non-secure)
+ 473:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Base Priority register when in secure state.
+ARM GAS  /tmp/ccINzGhC.s 			page 15
+
+
+ 474:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Base Priority register value
+ 475:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 476:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_BASEPRI_NS(void)
+ 477:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 478:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 479:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 480:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, basepri_ns" : "=r" (result) );
+ 481:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 482:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 483:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 484:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 485:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 486:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 487:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Base Priority
+ 488:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Base Priority register.
+ 489:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
+ 490:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 491:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI(uint32_t basePri)
+ 492:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 493:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR basepri, %0" : : "r" (basePri) : "memory");
+ 494:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 495:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 496:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 497:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 498:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 499:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Base Priority (non-secure)
+ 500:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Base Priority register when in secure state.
+ 501:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
+ 502:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 503:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_BASEPRI_NS(uint32_t basePri)
+ 504:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 505:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR basepri_ns, %0" : : "r" (basePri) : "memory");
+ 506:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 507:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 508:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 509:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 510:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 511:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Base Priority with condition
+ 512:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Base Priority register only if BASEPRI masking is disable
+ 513:Drivers/CMSIS/Include/cmsis_gcc.h ****            or the new value increases the BASEPRI priority level.
+ 514:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    basePri  Base Priority value to set
+ 515:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 516:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_BASEPRI_MAX(uint32_t basePri)
+ 517:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 518:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR basepri_max, %0" : : "r" (basePri) : "memory");
+ 519:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 520:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 521:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 522:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 523:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Fault Mask
+ 524:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Fault Mask register.
+ 525:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Fault Mask register value
+ 526:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 527:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FAULTMASK(void)
+ 528:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 529:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 530:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ARM GAS  /tmp/ccINzGhC.s 			page 16
+
+
+ 531:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask" : "=r" (result) );
+ 532:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 533:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 534:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 535:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 536:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 537:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 538:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Fault Mask (non-secure)
+ 539:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Fault Mask register when in secure state.
+ 540:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Fault Mask register value
+ 541:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 542:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_FAULTMASK_NS(void)
+ 543:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 544:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 545:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 546:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, faultmask_ns" : "=r" (result) );
+ 547:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 548:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 549:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 550:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 551:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 552:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 553:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Fault Mask
+ 554:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Fault Mask register.
+ 555:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    faultMask  Fault Mask value to set
+ 556:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 557:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_FAULTMASK(uint32_t faultMask)
+ 558:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 559:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR faultmask, %0" : : "r" (faultMask) : "memory");
+ 560:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 561:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 562:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 563:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE ) && (__ARM_FEATURE_CMSE == 3))
+ 564:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 565:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Fault Mask (non-secure)
+ 566:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Fault Mask register when in secure state.
+ 567:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    faultMask  Fault Mask value to set
+ 568:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 569:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_FAULTMASK_NS(uint32_t faultMask)
+ 570:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 571:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR faultmask_ns, %0" : : "r" (faultMask) : "memory");
+ 572:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 573:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 574:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 575:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+ 576:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+ 577:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    ) */
+ 578:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 579:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 580:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
+ 581:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    )
+ 582:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 583:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 584:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit
+ 585:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 586:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always in non-secure
+ 587:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
+ARM GAS  /tmp/ccINzGhC.s 			page 17
+
+
+ 588:Drivers/CMSIS/Include/cmsis_gcc.h ****   
+ 589:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Process Stack Pointer Limit (PSPLIM).
+ 590:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSPLIM Register value
+ 591:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 592:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_PSPLIM(void)
+ 593:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 594:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 595:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 596:Drivers/CMSIS/Include/cmsis_gcc.h ****     // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 597:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
+ 598:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 599:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 600:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psplim"  : "=r" (result) );
+ 601:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 602:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 603:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 604:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 605:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE) && (__ARM_FEATURE_CMSE == 3))
+ 606:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 607:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Process Stack Pointer Limit (non-secure)
+ 608:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 609:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always.
+ 610:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 611:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Process Stack Pointer Limit (PSPLIM) when in
+ 612:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               PSPLIM Register value
+ 613:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 614:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_PSPLIM_NS(void)
+ 615:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 616:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ 617:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 618:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
+ 619:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 620:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 621:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, psplim_ns"  : "=r" (result) );
+ 622:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 623:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 624:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 625:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 626:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 627:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 628:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 629:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer Limit
+ 630:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 631:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
+ 632:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
+ 633:Drivers/CMSIS/Include/cmsis_gcc.h ****   
+ 634:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Process Stack Pointer Limit (PSPLIM).
+ 635:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
+ 636:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 637:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_PSPLIM(uint32_t ProcStackPtrLimit)
+ 638:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 639:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 640:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 641:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 642:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
+ 643:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 644:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psplim, %0" : : "r" (ProcStackPtrLimit));
+ARM GAS  /tmp/ccINzGhC.s 			page 18
+
+
+ 645:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 646:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 647:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 648:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 649:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
+ 650:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 651:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Process Stack Pointer (non-secure)
+ 652:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 653:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
+ 654:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 655:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Process Stack Pointer Limit (PSPLIM) when in s
+ 656:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    ProcStackPtrLimit  Process Stack Pointer Limit value to set
+ 657:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 658:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_PSPLIM_NS(uint32_t ProcStackPtrLimit)
+ 659:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 660:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ 661:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure PSPLIM is RAZ/WI
+ 662:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)ProcStackPtrLimit;
+ 663:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 664:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR psplim_ns, %0\n" : : "r" (ProcStackPtrLimit));
+ 665:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 666:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 667:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 668:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 669:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 670:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 671:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer Limit
+ 672:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 673:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always in non-secure
+ 674:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
+ 675:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 676:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Main Stack Pointer Limit (MSPLIM).
+ 677:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSPLIM Register value
+ 678:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 679:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_MSPLIM(void)
+ 680:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 681:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 682:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 683:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 684:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
+ 685:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 686:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 687:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msplim" : "=r" (result) );
+ 688:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 689:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 690:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 691:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 692:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 693:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
+ 694:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 695:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get Main Stack Pointer Limit (non-secure)
+ 696:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 697:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence zero is returned always.
+ 698:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 699:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the non-secure Main Stack Pointer Limit(MSPLIM) when in sec
+ 700:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               MSPLIM Register value
+ 701:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ARM GAS  /tmp/ccINzGhC.s 			page 19
+
+
+ 702:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __TZ_get_MSPLIM_NS(void)
+ 703:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 704:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ 705:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 706:Drivers/CMSIS/Include/cmsis_gcc.h ****   return 0U;
+ 707:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 708:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 709:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MRS %0, msplim_ns" : "=r" (result) );
+ 710:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 711:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 712:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 713:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 714:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 715:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 716:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 717:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit
+ 718:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 719:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored in non-secure
+ 720:Drivers/CMSIS/Include/cmsis_gcc.h ****   mode.
+ 721:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 722:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Main Stack Pointer Limit (MSPLIM).
+ 723:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    MainStackPtrLimit  Main Stack Pointer Limit value to set
+ 724:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 725:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_MSPLIM(uint32_t MainStackPtrLimit)
+ 726:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 727:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) && \
+ 728:Drivers/CMSIS/Include/cmsis_gcc.h ****     (!defined (__ARM_FEATURE_CMSE) || (__ARM_FEATURE_CMSE < 3)))
+ 729:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 730:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)MainStackPtrLimit;
+ 731:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 732:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR msplim, %0" : : "r" (MainStackPtrLimit));
+ 733:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 734:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 735:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 736:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 737:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (defined (__ARM_FEATURE_CMSE  ) && (__ARM_FEATURE_CMSE   == 3))
+ 738:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 739:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set Main Stack Pointer Limit (non-secure)
+ 740:Drivers/CMSIS/Include/cmsis_gcc.h ****   Devices without ARMv8-M Main Extensions (i.e. Cortex-M23) lack the non-secure
+ 741:Drivers/CMSIS/Include/cmsis_gcc.h ****   Stack Pointer Limit register hence the write is silently ignored.
+ 742:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 743:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the non-secure Main Stack Pointer Limit (MSPLIM) when in secu
+ 744:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    MainStackPtrLimit  Main Stack Pointer value to set
+ 745:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 746:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __TZ_set_MSPLIM_NS(uint32_t MainStackPtrLimit)
+ 747:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 748:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (!(defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)))
+ 749:Drivers/CMSIS/Include/cmsis_gcc.h ****   // without main extensions, the non-secure MSPLIM is RAZ/WI
+ 750:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)MainStackPtrLimit;
+ 751:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 752:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("MSR msplim_ns, %0" : : "r" (MainStackPtrLimit));
+ 753:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 754:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 755:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 756:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 757:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif /* ((defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1)) || \
+ 758:Drivers/CMSIS/Include/cmsis_gcc.h ****            (defined (__ARM_ARCH_8M_BASE__ ) && (__ARM_ARCH_8M_BASE__ == 1))    ) */
+ARM GAS  /tmp/ccINzGhC.s 			page 20
+
+
+ 759:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 760:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 761:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 762:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Get FPSCR
+ 763:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Returns the current value of the Floating Point Status/Control register.
+ 764:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Floating Point Status/Control register value
+ 765:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 766:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __get_FPSCR(void)
+ 767:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 768:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
+ 769:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
+ 770:Drivers/CMSIS/Include/cmsis_gcc.h **** #if __has_builtin(__builtin_arm_get_fpscr) 
+ 771:Drivers/CMSIS/Include/cmsis_gcc.h **** // Re-enable using built-in when GCC has been fixed
+ 772:Drivers/CMSIS/Include/cmsis_gcc.h **** // || (__GNUC__ > 7) || (__GNUC__ == 7 && __GNUC_MINOR__ >= 2)
+ 773:Drivers/CMSIS/Include/cmsis_gcc.h ****   /* see https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00443.html */
+ 774:Drivers/CMSIS/Include/cmsis_gcc.h ****   return __builtin_arm_get_fpscr();
+ 775:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 776:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 777:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 778:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("VMRS %0, fpscr" : "=r" (result) );
+ 779:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(result);
+ 780:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 781:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 782:Drivers/CMSIS/Include/cmsis_gcc.h ****   return(0U);
+ 783:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 784:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 785:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 786:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 787:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 788:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Set FPSCR
+ 789:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Assigns the given value to the Floating Point Status/Control register.
+ 790:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    fpscr  Floating Point Status/Control value to set
+ 791:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 792:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __set_FPSCR(uint32_t fpscr)
+ 793:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 794:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__FPU_PRESENT) && (__FPU_PRESENT == 1U)) && \
+ 795:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__FPU_USED   ) && (__FPU_USED    == 1U))     )
+ 796:Drivers/CMSIS/Include/cmsis_gcc.h **** #if __has_builtin(__builtin_arm_set_fpscr)
+ 797:Drivers/CMSIS/Include/cmsis_gcc.h **** // Re-enable using built-in when GCC has been fixed
+ 798:Drivers/CMSIS/Include/cmsis_gcc.h **** // || (__GNUC__ > 7) || (__GNUC__ == 7 && __GNUC_MINOR__ >= 2)
+ 799:Drivers/CMSIS/Include/cmsis_gcc.h ****   /* see https://gcc.gnu.org/ml/gcc-patches/2017-04/msg00443.html */
+ 800:Drivers/CMSIS/Include/cmsis_gcc.h ****   __builtin_arm_set_fpscr(fpscr);
+ 801:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 802:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("VMSR fpscr, %0" : : "r" (fpscr) : "vfpcc", "memory");
+ 803:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 804:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 805:Drivers/CMSIS/Include/cmsis_gcc.h ****   (void)fpscr;
+ 806:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 807:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 808:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 809:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 810:Drivers/CMSIS/Include/cmsis_gcc.h **** /*@} end of CMSIS_Core_RegAccFunctions */
+ 811:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 812:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 813:Drivers/CMSIS/Include/cmsis_gcc.h **** /* ##########################  Core Instruction Access  ######################### */
+ 814:Drivers/CMSIS/Include/cmsis_gcc.h **** /** \defgroup CMSIS_Core_InstructionInterface CMSIS Core Instruction Interface
+ 815:Drivers/CMSIS/Include/cmsis_gcc.h ****   Access to dedicated instructions
+ARM GAS  /tmp/ccINzGhC.s 			page 21
+
+
+ 816:Drivers/CMSIS/Include/cmsis_gcc.h ****   @{
+ 817:Drivers/CMSIS/Include/cmsis_gcc.h **** */
+ 818:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 819:Drivers/CMSIS/Include/cmsis_gcc.h **** /* Define macros for porting to both thumb1 and thumb2.
+ 820:Drivers/CMSIS/Include/cmsis_gcc.h ****  * For thumb1, use low register (r0-r7), specified by constraint "l"
+ 821:Drivers/CMSIS/Include/cmsis_gcc.h ****  * Otherwise, use general registers, specified by constraint "r" */
+ 822:Drivers/CMSIS/Include/cmsis_gcc.h **** #if defined (__thumb__) && !defined (__thumb2__)
+ 823:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_OUT_REG(r) "=l" (r)
+ 824:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_RW_REG(r) "+l" (r)
+ 825:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_USE_REG(r) "l" (r)
+ 826:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 827:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_OUT_REG(r) "=r" (r)
+ 828:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_RW_REG(r) "+r" (r)
+ 829:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_USE_REG(r) "r" (r)
+ 830:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 831:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 832:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 833:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   No Operation
+ 834:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details No Operation does nothing. This instruction can be used for code alignment purposes.
+ 835:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 836:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __NOP()                             __ASM volatile ("nop")
+ 837:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 838:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 839:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Wait For Interrupt
+ 840:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Wait For Interrupt is a hint instruction that suspends execution until one of a number o
+ 841:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 842:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __WFI()                             __ASM volatile ("wfi")
+ 843:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 844:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 845:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 846:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Wait For Event
+ 847:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Wait For Event is a hint instruction that permits the processor to enter
+ 848:Drivers/CMSIS/Include/cmsis_gcc.h ****            a low-power state until one of a number of events occurs.
+ 849:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 850:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __WFE()                             __ASM volatile ("wfe")
+ 851:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 852:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 853:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 854:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Send Event
+ 855:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Send Event is a hint instruction. It causes an event to be signaled to the CPU.
+ 856:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 857:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __SEV()                             __ASM volatile ("sev")
+ 858:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 859:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 860:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 861:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Instruction Synchronization Barrier
+ 862:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Instruction Synchronization Barrier flushes the pipeline in the processor,
+ 863:Drivers/CMSIS/Include/cmsis_gcc.h ****            so that all instructions following the ISB are fetched from cache or memory,
+ 864:Drivers/CMSIS/Include/cmsis_gcc.h ****            after the instruction has been completed.
+ 865:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 866:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __ISB(void)
+ 867:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 868:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("isb 0xF":::"memory");
+ 869:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 870:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 871:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 872:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ARM GAS  /tmp/ccINzGhC.s 			page 22
+
+
+ 873:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Data Synchronization Barrier
+ 874:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Acts as a special kind of Data Memory Barrier.
+ 875:Drivers/CMSIS/Include/cmsis_gcc.h ****            It completes when all explicit memory accesses before this instruction complete.
+ 876:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 877:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DSB(void)
+ 878:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 879:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dsb 0xF":::"memory");
+ 880:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 881:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 882:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 883:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 884:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Data Memory Barrier
+ 885:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Ensures the apparent order of the explicit memory operations before
+ 886:Drivers/CMSIS/Include/cmsis_gcc.h ****            and after the instruction, without ensuring their completion.
+ 887:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 888:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE void __DMB(void)
+ 889:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 890:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("dmb 0xF":::"memory");
+ 891:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 892:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 893:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 894:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 895:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Reverse byte order (32 bit)
+ 896:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Reverses the byte order in unsigned integer value. For example, 0x12345678 becomes 0x785
+ 897:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Value to reverse
+ 898:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Reversed value
+ 899:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 900:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __REV(uint32_t value)
+ 901:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 902:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 5)
+ 903:Drivers/CMSIS/Include/cmsis_gcc.h ****   return __builtin_bswap32(value);
+ 904:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 905:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 906:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 907:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("rev %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+ 908:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 909:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 910:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 911:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 912:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 913:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 914:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Reverse byte order (16 bit)
+ 915:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Reverses the byte order within each halfword of a word. For example, 0x12345678 becomes 
+ 916:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Value to reverse
+ 917:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Reversed value
+ 918:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 919:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __REV16(uint32_t value)
+ 920:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 921:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 922:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 923:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("rev16 %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+ 924:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 925:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 926:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 927:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 928:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 929:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Reverse byte order (16 bit)
+ARM GAS  /tmp/ccINzGhC.s 			page 23
+
+
+ 930:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Reverses the byte order in a 16-bit value and returns the signed 16-bit result. For exam
+ 931:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Value to reverse
+ 932:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Reversed value
+ 933:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 934:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE int16_t __REVSH(int16_t value)
+ 935:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 936:Drivers/CMSIS/Include/cmsis_gcc.h **** #if (__GNUC__ > 4) || (__GNUC__ == 4 && __GNUC_MINOR__ >= 8)
+ 937:Drivers/CMSIS/Include/cmsis_gcc.h ****   return (int16_t)__builtin_bswap16(value);
+ 938:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 939:Drivers/CMSIS/Include/cmsis_gcc.h ****   int16_t result;
+ 940:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 941:Drivers/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("revsh %0, %1" : __CMSIS_GCC_OUT_REG (result) : __CMSIS_GCC_USE_REG (value) );
+ 942:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 943:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+ 944:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 945:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 946:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 947:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 948:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Rotate Right in unsigned value (32 bit)
+ 949:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Rotate Right (immediate) provides the value of the contents of a register rotated by a v
+ 950:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    op1  Value to rotate
+ 951:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    op2  Number of Bits to rotate
+ 952:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Rotated value
+ 953:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 954:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __ROR(uint32_t op1, uint32_t op2)
+ 955:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 956:Drivers/CMSIS/Include/cmsis_gcc.h ****   op2 %= 32U;
+ 957:Drivers/CMSIS/Include/cmsis_gcc.h ****   if (op2 == 0U)
+ 958:Drivers/CMSIS/Include/cmsis_gcc.h ****   {
+ 959:Drivers/CMSIS/Include/cmsis_gcc.h ****     return op1;
+ 960:Drivers/CMSIS/Include/cmsis_gcc.h ****   }
+ 961:Drivers/CMSIS/Include/cmsis_gcc.h ****   return (op1 >> op2) | (op1 << (32U - op2));
+ 962:Drivers/CMSIS/Include/cmsis_gcc.h **** }
+ 963:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 964:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 965:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 966:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Breakpoint
+ 967:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Causes the processor to enter Debug state.
+ 968:Drivers/CMSIS/Include/cmsis_gcc.h ****            Debug tools can use this to investigate system state when the instruction at a particula
+ 969:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  is ignored by the processor.
+ 970:Drivers/CMSIS/Include/cmsis_gcc.h ****                  If required, a debugger can use it to store additional information about the break
+ 971:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 972:Drivers/CMSIS/Include/cmsis_gcc.h **** #define __BKPT(value)                       __ASM volatile ("bkpt "#value)
+ 973:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 974:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 975:Drivers/CMSIS/Include/cmsis_gcc.h **** /**
+ 976:Drivers/CMSIS/Include/cmsis_gcc.h ****   \brief   Reverse bit order of value
+ 977:Drivers/CMSIS/Include/cmsis_gcc.h ****   \details Reverses the bit order of the given value.
+ 978:Drivers/CMSIS/Include/cmsis_gcc.h ****   \param [in]    value  Value to reverse
+ 979:Drivers/CMSIS/Include/cmsis_gcc.h ****   \return               Reversed value
+ 980:Drivers/CMSIS/Include/cmsis_gcc.h ****  */
+ 981:Drivers/CMSIS/Include/cmsis_gcc.h **** __STATIC_FORCEINLINE uint32_t __RBIT(uint32_t value)
+ 120              		.loc 2 981 31 view .LVU30
+ 121              	.LBB16:
+ 982:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 983:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t result;
+ 122              		.loc 2 983 3 view .LVU31
+ARM GAS  /tmp/ccINzGhC.s 			page 24
+
+
+ 984:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 985:Drivers/CMSIS/Include/cmsis_gcc.h **** #if ((defined (__ARM_ARCH_7M__      ) && (__ARM_ARCH_7M__      == 1)) || \
+ 986:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_7EM__     ) && (__ARM_ARCH_7EM__     == 1)) || \
+ 987:Drivers/CMSIS/Include/cmsis_gcc.h ****      (defined (__ARM_ARCH_8M_MAIN__ ) && (__ARM_ARCH_8M_MAIN__ == 1))    )
+ 988:Drivers/CMSIS/Include/cmsis_gcc.h ****    __ASM volatile ("rbit %0, %1" : "=r" (result) : "r" (value) );
+ 123              		.loc 2 988 4 view .LVU32
+ 124 0046 47F6C072 		movw	r2, #32704
+ 125              		.syntax unified
+ 126              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 127 004a 92FAA2F2 		rbit r2, r2
+ 128              	@ 0 "" 2
+ 129              	.LVL9:
+ 989:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 990:Drivers/CMSIS/Include/cmsis_gcc.h ****   uint32_t s = (4U /*sizeof(v)*/ * 8U) - 1U; /* extra shift needed at end */
+ 991:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 992:Drivers/CMSIS/Include/cmsis_gcc.h ****   result = value;                      /* r will be reversed bits of v; first get LSB of v */
+ 993:Drivers/CMSIS/Include/cmsis_gcc.h ****   for (value >>= 1U; value != 0U; value >>= 1U)
+ 994:Drivers/CMSIS/Include/cmsis_gcc.h ****   {
+ 995:Drivers/CMSIS/Include/cmsis_gcc.h ****     result <<= 1U;
+ 996:Drivers/CMSIS/Include/cmsis_gcc.h ****     result |= value & 1U;
+ 997:Drivers/CMSIS/Include/cmsis_gcc.h ****     s--;
+ 998:Drivers/CMSIS/Include/cmsis_gcc.h ****   }
+ 999:Drivers/CMSIS/Include/cmsis_gcc.h ****   result <<= s;                        /* shift when v's highest bits are zero */
+1000:Drivers/CMSIS/Include/cmsis_gcc.h **** #endif
+1001:Drivers/CMSIS/Include/cmsis_gcc.h ****   return result;
+ 130              		.loc 2 1001 3 view .LVU33
+ 131              		.loc 2 1001 3 is_stmt 0 view .LVU34
+ 132              		.thumb
+ 133              		.syntax unified
+ 134              	.LBE16:
+ 135              	.LBE15:
+ 118:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 136              		.loc 1 118 5 view .LVU35
+ 137 004e B2FA82F2 		clz	r2, r2
+ 138 0052 9340     		lsls	r3, r3, r2
+ 139 0054 A168     		ldr	r1, [r4, #8]
+ 140              	.LVL10:
+ 141              	.LBB17:
+ 142              	.LBI17:
+ 981:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 143              		.loc 2 981 31 is_stmt 1 view .LVU36
+ 144              	.LBB18:
+ 983:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 145              		.loc 2 983 3 view .LVU37
+ 988:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 146              		.loc 2 988 4 view .LVU38
+ 147 0056 4FF0E042 		mov	r2, #1879048192
+ 148              		.syntax unified
+ 149              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 150 005a 92FAA2F2 		rbit r2, r2
+ 151              	@ 0 "" 2
+ 152              	.LVL11:
+ 153              		.loc 2 1001 3 view .LVU39
+ 154              		.loc 2 1001 3 is_stmt 0 view .LVU40
+ 155              		.thumb
+ 156              		.syntax unified
+ 157              	.LBE18:
+ARM GAS  /tmp/ccINzGhC.s 			page 25
+
+
+ 158              	.LBE17:
+ 118:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 159              		.loc 1 118 5 view .LVU41
+ 160 005e B2FA82F2 		clz	r2, r2
+ 161 0062 01FA02F2 		lsl	r2, r1, r2
+ 162 0066 1343     		orrs	r3, r3, r2
+ 163 0068 404A     		ldr	r2, .L27+4
+ 164 006a C2F88430 		str	r3, [r2, #132]
+ 121:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Get tick */
+ 165              		.loc 1 121 5 is_stmt 1 view .LVU42
+ 166 006e 3E4B     		ldr	r3, .L27
+ 167 0070 0122     		movs	r2, #1
+ 168 0072 9A66     		str	r2, [r3, #104]
+ 123:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Wait till PLLI2S is ready */
+ 169              		.loc 1 123 5 view .LVU43
+ 123:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     /* Wait till PLLI2S is ready */
+ 170              		.loc 1 123 17 is_stmt 0 view .LVU44
+ 171 0074 FFF7FEFF 		bl	HAL_GetTick
+ 172              	.LVL12:
+ 173 0078 0546     		mov	r5, r0
+ 174              	.LVL13:
+ 125:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 175              		.loc 1 125 5 is_stmt 1 view .LVU45
+ 176              	.L7:
+ 125:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 177              		.loc 1 125 10 view .LVU46
+ 125:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 178              		.loc 1 125 11 is_stmt 0 view .LVU47
+ 179 007a 3C4B     		ldr	r3, .L27+4
+ 180 007c 1B68     		ldr	r3, [r3]
+ 125:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 181              		.loc 1 125 10 view .LVU48
+ 182 007e 13F0006F 		tst	r3, #134217728
+ 183 0082 C6D1     		bne	.L3
+ 127:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 184              		.loc 1 127 7 is_stmt 1 view .LVU49
+ 127:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 185              		.loc 1 127 11 is_stmt 0 view .LVU50
+ 186 0084 FFF7FEFF 		bl	HAL_GetTick
+ 187              	.LVL14:
+ 127:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 188              		.loc 1 127 25 view .LVU51
+ 189 0088 431B     		subs	r3, r0, r5
+ 127:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 190              		.loc 1 127 9 view .LVU52
+ 191 008a 022B     		cmp	r3, #2
+ 192 008c F5D9     		bls	.L7
+ 130:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       }
+ 193              		.loc 1 130 16 view .LVU53
+ 194 008e 0320     		movs	r0, #3
+ 195 0090 C4E7     		b	.L5
+ 196              	.LVL15:
+ 197              	.L22:
+ 140:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 198              		.loc 1 140 5 is_stmt 1 view .LVU54
+ 143:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 199              		.loc 1 143 5 view .LVU55
+ARM GAS  /tmp/ccINzGhC.s 			page 26
+
+
+ 200              	.LBB19:
+ 143:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 201              		.loc 1 143 5 view .LVU56
+ 202 0092 0023     		movs	r3, #0
+ 203 0094 0193     		str	r3, [sp, #4]
+ 143:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 204              		.loc 1 143 5 view .LVU57
+ 205 0096 354B     		ldr	r3, .L27+4
+ 206 0098 1A6C     		ldr	r2, [r3, #64]
+ 207 009a 42F08052 		orr	r2, r2, #268435456
+ 208 009e 1A64     		str	r2, [r3, #64]
+ 143:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 209              		.loc 1 143 5 view .LVU58
+ 210 00a0 1B6C     		ldr	r3, [r3, #64]
+ 211 00a2 03F08053 		and	r3, r3, #268435456
+ 212 00a6 0193     		str	r3, [sp, #4]
+ 143:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 213              		.loc 1 143 5 view .LVU59
+ 214 00a8 019B     		ldr	r3, [sp, #4]
+ 215              	.LBE19:
+ 143:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 216              		.loc 1 143 5 view .LVU60
+ 146:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 217              		.loc 1 146 5 view .LVU61
+ 146:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 218              		.loc 1 146 13 is_stmt 0 view .LVU62
+ 219 00aa 314A     		ldr	r2, .L27+8
+ 220 00ac 1368     		ldr	r3, [r2]
+ 221 00ae 43F48073 		orr	r3, r3, #256
+ 222 00b2 1360     		str	r3, [r2]
+ 149:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 223              		.loc 1 149 5 is_stmt 1 view .LVU63
+ 149:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     
+ 224              		.loc 1 149 17 is_stmt 0 view .LVU64
+ 225 00b4 FFF7FEFF 		bl	HAL_GetTick
+ 226              	.LVL16:
+ 227 00b8 0546     		mov	r5, r0
+ 228              	.LVL17:
+ 151:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 229              		.loc 1 151 5 is_stmt 1 view .LVU65
+ 230              	.L9:
+ 151:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 231              		.loc 1 151 10 view .LVU66
+ 151:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 232              		.loc 1 151 15 is_stmt 0 view .LVU67
+ 233 00ba 2D4B     		ldr	r3, .L27+8
+ 234 00bc 1B68     		ldr	r3, [r3]
+ 151:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 235              		.loc 1 151 10 view .LVU68
+ 236 00be 13F4807F 		tst	r3, #256
+ 237 00c2 06D1     		bne	.L24
+ 153:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 238              		.loc 1 153 7 is_stmt 1 view .LVU69
+ 153:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 239              		.loc 1 153 11 is_stmt 0 view .LVU70
+ 240 00c4 FFF7FEFF 		bl	HAL_GetTick
+ 241              	.LVL18:
+ARM GAS  /tmp/ccINzGhC.s 			page 27
+
+
+ 153:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 242              		.loc 1 153 25 view .LVU71
+ 243 00c8 431B     		subs	r3, r0, r5
+ 153:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 244              		.loc 1 153 9 view .LVU72
+ 245 00ca 022B     		cmp	r3, #2
+ 246 00cc F5D9     		bls	.L9
+ 155:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       }
+ 247              		.loc 1 155 16 view .LVU73
+ 248 00ce 0320     		movs	r0, #3
+ 249 00d0 A4E7     		b	.L5
+ 250              	.L24:
+ 159:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     if((tmpreg1 != 0x00000000U) && ((tmpreg1) != (PeriphClkInit->RTCClockSelection & RCC_BDCR_RTCSE
+ 251              		.loc 1 159 5 is_stmt 1 view .LVU74
+ 159:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     if((tmpreg1 != 0x00000000U) && ((tmpreg1) != (PeriphClkInit->RTCClockSelection & RCC_BDCR_RTCSE
+ 252              		.loc 1 159 19 is_stmt 0 view .LVU75
+ 253 00d2 264B     		ldr	r3, .L27+4
+ 254 00d4 1B6F     		ldr	r3, [r3, #112]
+ 255              	.LVL19:
+ 160:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 256              		.loc 1 160 5 is_stmt 1 view .LVU76
+ 160:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 257              		.loc 1 160 7 is_stmt 0 view .LVU77
+ 258 00d6 13F44073 		ands	r3, r3, #768
+ 259              	.LVL20:
+ 160:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 260              		.loc 1 160 7 view .LVU78
+ 261 00da 14D0     		beq	.L11
+ 160:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 262              		.loc 1 160 64 discriminator 1 view .LVU79
+ 263 00dc E268     		ldr	r2, [r4, #12]
+ 160:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 264              		.loc 1 160 84 discriminator 1 view .LVU80
+ 265 00de 02F44072 		and	r2, r2, #768
+ 160:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 266              		.loc 1 160 33 discriminator 1 view .LVU81
+ 267 00e2 9A42     		cmp	r2, r3
+ 268 00e4 0FD0     		beq	.L11
+ 163:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* RTC Clock selection can be changed only if the Backup Domain is reset */
+ 269              		.loc 1 163 7 is_stmt 1 view .LVU82
+ 163:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* RTC Clock selection can be changed only if the Backup Domain is reset */
+ 270              		.loc 1 163 21 is_stmt 0 view .LVU83
+ 271 00e6 214B     		ldr	r3, .L27+4
+ 272              	.LVL21:
+ 163:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* RTC Clock selection can be changed only if the Backup Domain is reset */
+ 273              		.loc 1 163 21 view .LVU84
+ 274 00e8 1A6F     		ldr	r2, [r3, #112]
+ 163:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* RTC Clock selection can be changed only if the Backup Domain is reset */
+ 275              		.loc 1 163 15 view .LVU85
+ 276 00ea 22F44072 		bic	r2, r2, #768
+ 277              	.LVL22:
+ 165:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       __HAL_RCC_BACKUPRESET_RELEASE();
+ 278              		.loc 1 165 7 is_stmt 1 view .LVU86
+ 279 00ee 1E49     		ldr	r1, .L27
+ 280 00f0 0120     		movs	r0, #1
+ 281 00f2 C1F8400E 		str	r0, [r1, #3648]
+ 166:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* Restore the Content of BDCR register */
+ARM GAS  /tmp/ccINzGhC.s 			page 28
+
+
+ 282              		.loc 1 166 7 view .LVU87
+ 283 00f6 0020     		movs	r0, #0
+ 284 00f8 C1F8400E 		str	r0, [r1, #3648]
+ 168:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 285              		.loc 1 168 7 view .LVU88
+ 168:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 286              		.loc 1 168 17 is_stmt 0 view .LVU89
+ 287 00fc 1A67     		str	r2, [r3, #112]
+ 171:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 288              		.loc 1 171 7 is_stmt 1 view .LVU90
+ 171:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 289              		.loc 1 171 10 is_stmt 0 view .LVU91
+ 290 00fe 1B6F     		ldr	r3, [r3, #112]
+ 171:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       {
+ 291              		.loc 1 171 9 view .LVU92
+ 292 0100 13F0010F 		tst	r3, #1
+ 293 0104 13D1     		bne	.L25
+ 294              	.LVL23:
+ 295              	.L11:
+ 186:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 296              		.loc 1 186 5 is_stmt 1 view .LVU93
+ 186:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 297              		.loc 1 186 5 view .LVU94
+ 298 0106 E368     		ldr	r3, [r4, #12]
+ 299 0108 03F44072 		and	r2, r3, #768
+ 300 010c B2F5407F 		cmp	r2, #768
+ 301 0110 1ED0     		beq	.L26
+ 186:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 302              		.loc 1 186 5 is_stmt 0 discriminator 2 view .LVU95
+ 303 0112 164A     		ldr	r2, .L27+4
+ 304 0114 9368     		ldr	r3, [r2, #8]
+ 305 0116 23F4F813 		bic	r3, r3, #2031616
+ 306 011a 9360     		str	r3, [r2, #8]
+ 307              	.L15:
+ 186:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 308              		.loc 1 186 5 is_stmt 1 discriminator 4 view .LVU96
+ 309 011c 1349     		ldr	r1, .L27+4
+ 310 011e 0B6F     		ldr	r3, [r1, #112]
+ 311 0120 E268     		ldr	r2, [r4, #12]
+ 312 0122 C2F30B02 		ubfx	r2, r2, #0, #12
+ 313 0126 1343     		orrs	r3, r3, r2
+ 314 0128 0B67     		str	r3, [r1, #112]
+ 190:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** }
+ 315              		.loc 1 190 10 is_stmt 0 discriminator 4 view .LVU97
+ 316 012a 0020     		movs	r0, #0
+ 317 012c 76E7     		b	.L5
+ 318              	.LVL24:
+ 319              	.L25:
+ 174:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         
+ 320              		.loc 1 174 9 is_stmt 1 view .LVU98
+ 174:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         
+ 321              		.loc 1 174 21 is_stmt 0 view .LVU99
+ 322 012e FFF7FEFF 		bl	HAL_GetTick
+ 323              	.LVL25:
+ 174:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         
+ 324              		.loc 1 174 21 view .LVU100
+ 325 0132 0546     		mov	r5, r0
+ARM GAS  /tmp/ccINzGhC.s 			page 29
+
+
+ 326              	.LVL26:
+ 177:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         {
+ 327              		.loc 1 177 9 is_stmt 1 view .LVU101
+ 328              	.L12:
+ 177:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         {
+ 329              		.loc 1 177 14 view .LVU102
+ 177:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         {
+ 330              		.loc 1 177 15 is_stmt 0 view .LVU103
+ 331 0134 0D4B     		ldr	r3, .L27+4
+ 332 0136 1B6F     		ldr	r3, [r3, #112]
+ 177:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****         {
+ 333              		.loc 1 177 14 view .LVU104
+ 334 0138 13F0020F 		tst	r3, #2
+ 335 013c E3D1     		bne	.L11
+ 179:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           {
+ 336              		.loc 1 179 11 is_stmt 1 view .LVU105
+ 179:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           {
+ 337              		.loc 1 179 15 is_stmt 0 view .LVU106
+ 338 013e FFF7FEFF 		bl	HAL_GetTick
+ 339              	.LVL27:
+ 179:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           {
+ 340              		.loc 1 179 29 view .LVU107
+ 341 0142 401B     		subs	r0, r0, r5
+ 179:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           {
+ 342              		.loc 1 179 13 view .LVU108
+ 343 0144 41F28833 		movw	r3, #5000
+ 344 0148 9842     		cmp	r0, r3
+ 345 014a F3D9     		bls	.L12
+ 181:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****           }
+ 346              		.loc 1 181 20 view .LVU109
+ 347 014c 0320     		movs	r0, #3
+ 348 014e 65E7     		b	.L5
+ 349              	.L26:
+ 186:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 350              		.loc 1 186 5 discriminator 1 view .LVU110
+ 351 0150 0649     		ldr	r1, .L27+4
+ 352 0152 8A68     		ldr	r2, [r1, #8]
+ 353 0154 22F4F812 		bic	r2, r2, #2031616
+ 354 0158 23F07043 		bic	r3, r3, #-268435456
+ 355 015c 23F44073 		bic	r3, r3, #768
+ 356 0160 1343     		orrs	r3, r3, r2
+ 357 0162 8B60     		str	r3, [r1, #8]
+ 358 0164 DAE7     		b	.L15
+ 359              	.L28:
+ 360 0166 00BF     		.align	2
+ 361              	.L27:
+ 362 0168 00004742 		.word	1111949312
+ 363 016c 00380240 		.word	1073887232
+ 364 0170 00700040 		.word	1073770496
+ 365              		.cfi_endproc
+ 366              	.LFE72:
+ 368              		.section	.text.HAL_RCCEx_GetPeriphCLKConfig,"ax",%progbits
+ 369              		.align	1
+ 370              		.global	HAL_RCCEx_GetPeriphCLKConfig
+ 371              		.syntax unified
+ 372              		.thumb
+ 373              		.thumb_func
+ARM GAS  /tmp/ccINzGhC.s 			page 30
+
+
+ 374              		.fpu softvfp
+ 376              	HAL_RCCEx_GetPeriphCLKConfig:
+ 377              	.LVL28:
+ 378              	.LFB73:
+ 192:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 193:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /**
+ 194:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @brief  Configures the RCC_OscInitStruct according to the internal 
+ 195:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * RCC configuration registers.
+ 196:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @param  PeriphClkInit pointer to an RCC_PeriphCLKInitTypeDef structure that 
+ 197:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * will be configured.
+ 198:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @retval None
+ 199:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+ 200:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** void HAL_RCCEx_GetPeriphCLKConfig(RCC_PeriphCLKInitTypeDef  *PeriphClkInit)
+ 201:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** {
+ 379              		.loc 1 201 1 is_stmt 1 view -0
+ 380              		.cfi_startproc
+ 381              		@ args = 0, pretend = 0, frame = 0
+ 382              		@ frame_needed = 0, uses_anonymous_args = 0
+ 383              		@ link register save eliminated.
+ 202:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   uint32_t tempreg;
+ 384              		.loc 1 202 3 view .LVU112
+ 203:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   
+ 204:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Set all possible values for the extended clock type parameter------------*/
+ 205:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   PeriphClkInit->PeriphClockSelection = RCC_PERIPHCLK_I2S | RCC_PERIPHCLK_RTC;
+ 385              		.loc 1 205 3 view .LVU113
+ 386              		.loc 1 205 39 is_stmt 0 view .LVU114
+ 387 0000 0523     		movs	r3, #5
+ 388 0002 0360     		str	r3, [r0]
+ 206:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   
+ 207:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Get the PLLI2S Clock configuration --------------------------------------*/
+ 208:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   PeriphClkInit->PLLI2S.PLLI2SN = (uint32_t)((RCC->PLLI2SCFGR & RCC_PLLI2SCFGR_PLLI2SN) >> POSITION
+ 389              		.loc 1 208 3 is_stmt 1 view .LVU115
+ 390              		.loc 1 208 50 is_stmt 0 view .LVU116
+ 391 0004 1049     		ldr	r1, .L30
+ 392 0006 D1F88420 		ldr	r2, [r1, #132]
+ 393              		.loc 1 208 63 view .LVU117
+ 394 000a 47F6C073 		movw	r3, #32704
+ 395 000e 1A40     		ands	r2, r2, r3
+ 396              	.LVL29:
+ 397              	.LBB20:
+ 398              	.LBI20:
+ 981:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 399              		.loc 2 981 31 is_stmt 1 view .LVU118
+ 400              	.LBB21:
+ 983:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 401              		.loc 2 983 3 view .LVU119
+ 988:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 402              		.loc 2 988 4 view .LVU120
+ 403              		.syntax unified
+ 404              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 405 0010 93FAA3F3 		rbit r3, r3
+ 406              	@ 0 "" 2
+ 407              	.LVL30:
+ 408              		.loc 2 1001 3 view .LVU121
+ 409              		.loc 2 1001 3 is_stmt 0 view .LVU122
+ 410              		.thumb
+ 411              		.syntax unified
+ARM GAS  /tmp/ccINzGhC.s 			page 31
+
+
+ 412              	.LBE21:
+ 413              	.LBE20:
+ 414              		.loc 1 208 35 view .LVU123
+ 415 0014 B3FA83F3 		clz	r3, r3
+ 416 0018 22FA03F3 		lsr	r3, r2, r3
+ 417              		.loc 1 208 33 view .LVU124
+ 418 001c 4360     		str	r3, [r0, #4]
+ 209:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   PeriphClkInit->PLLI2S.PLLI2SR = (uint32_t)((RCC->PLLI2SCFGR & RCC_PLLI2SCFGR_PLLI2SR) >> POSITION
+ 419              		.loc 1 209 3 is_stmt 1 view .LVU125
+ 420              		.loc 1 209 50 is_stmt 0 view .LVU126
+ 421 001e D1F88430 		ldr	r3, [r1, #132]
+ 422              		.loc 1 209 63 view .LVU127
+ 423 0022 03F0E043 		and	r3, r3, #1879048192
+ 424              	.LVL31:
+ 425              	.LBB22:
+ 426              	.LBI22:
+ 981:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 427              		.loc 2 981 31 is_stmt 1 view .LVU128
+ 428              	.LBB23:
+ 983:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 429              		.loc 2 983 3 view .LVU129
+ 988:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 430              		.loc 2 988 4 view .LVU130
+ 431 0026 4FF0E042 		mov	r2, #1879048192
+ 432              		.syntax unified
+ 433              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 434 002a 92FAA2F2 		rbit r2, r2
+ 435              	@ 0 "" 2
+ 436              	.LVL32:
+ 437              		.loc 2 1001 3 view .LVU131
+ 438              		.loc 2 1001 3 is_stmt 0 view .LVU132
+ 439              		.thumb
+ 440              		.syntax unified
+ 441              	.LBE23:
+ 442              	.LBE22:
+ 443              		.loc 1 209 35 view .LVU133
+ 444 002e B2FA82F2 		clz	r2, r2
+ 445 0032 D340     		lsrs	r3, r3, r2
+ 446              		.loc 1 209 33 view .LVU134
+ 447 0034 8360     		str	r3, [r0, #8]
+ 210:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   
+ 211:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Get the RTC Clock configuration -----------------------------------------------*/
+ 212:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   tempreg = (RCC->CFGR & RCC_CFGR_RTCPRE);
+ 448              		.loc 1 212 3 is_stmt 1 view .LVU135
+ 449              		.loc 1 212 17 is_stmt 0 view .LVU136
+ 450 0036 8A68     		ldr	r2, [r1, #8]
+ 451              		.loc 1 212 11 view .LVU137
+ 452 0038 02F4F812 		and	r2, r2, #2031616
+ 453              	.LVL33:
+ 213:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   PeriphClkInit->RTCClockSelection = (uint32_t)((tempreg) | (RCC->BDCR & RCC_BDCR_RTCSEL));
+ 454              		.loc 1 213 3 is_stmt 1 view .LVU138
+ 455              		.loc 1 213 65 is_stmt 0 view .LVU139
+ 456 003c 0B6F     		ldr	r3, [r1, #112]
+ 457              		.loc 1 213 72 view .LVU140
+ 458 003e 03F44073 		and	r3, r3, #768
+ 459              		.loc 1 213 38 view .LVU141
+ 460 0042 1343     		orrs	r3, r3, r2
+ARM GAS  /tmp/ccINzGhC.s 			page 32
+
+
+ 461              		.loc 1 213 36 view .LVU142
+ 462 0044 C360     		str	r3, [r0, #12]
+ 214:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   
+ 215:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** }
+ 463              		.loc 1 215 1 view .LVU143
+ 464 0046 7047     		bx	lr
+ 465              	.L31:
+ 466              		.align	2
+ 467              	.L30:
+ 468 0048 00380240 		.word	1073887232
+ 469              		.cfi_endproc
+ 470              	.LFE73:
+ 472              		.section	.text.HAL_RCCEx_EnablePLLI2S,"ax",%progbits
+ 473              		.align	1
+ 474              		.global	HAL_RCCEx_EnablePLLI2S
+ 475              		.syntax unified
+ 476              		.thumb
+ 477              		.thumb_func
+ 478              		.fpu softvfp
+ 480              	HAL_RCCEx_EnablePLLI2S:
+ 481              	.LVL34:
+ 482              	.LFB74:
+ 216:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /**
+ 217:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @}
+ 218:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+ 219:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 220:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /** @defgroup RCCEx_Exported_Functions_Group2 Extended Clock management functions
+ 221:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  *  @brief  Extended Clock management functions
+ 222:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  *
+ 223:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** @verbatim   
+ 224:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  ===============================================================================
+ 225:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****                 ##### Extended clock management functions  #####
+ 226:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  ===============================================================================
+ 227:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     [..]
+ 228:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     This subsection provides a set of functions allowing to control the 
+ 229:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     activation or deactivation of PLLI2S.
+ 230:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** @endverbatim
+ 231:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @{
+ 232:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+ 233:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 234:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /**
+ 235:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @brief  Enable PLLI2S.
+ 236:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @param  PLLI2SInit  pointer to an RCC_PLLI2SInitTypeDef structure that
+ 237:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   *         contains the configuration information for the PLLI2S
+ 238:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @retval HAL status
+ 239:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+ 240:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** HAL_StatusTypeDef HAL_RCCEx_EnablePLLI2S(RCC_PLLI2SInitTypeDef  *PLLI2SInit)
+ 241:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** {
+ 483              		.loc 1 241 1 is_stmt 1 view -0
+ 484              		.cfi_startproc
+ 485              		@ args = 0, pretend = 0, frame = 0
+ 486              		@ frame_needed = 0, uses_anonymous_args = 0
+ 487              		.loc 1 241 1 is_stmt 0 view .LVU145
+ 488 0000 38B5     		push	{r3, r4, r5, lr}
+ 489              	.LCFI4:
+ 490              		.cfi_def_cfa_offset 16
+ 491              		.cfi_offset 3, -16
+ARM GAS  /tmp/ccINzGhC.s 			page 33
+
+
+ 492              		.cfi_offset 4, -12
+ 493              		.cfi_offset 5, -8
+ 494              		.cfi_offset 14, -4
+ 495 0002 0546     		mov	r5, r0
+ 242:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   uint32_t tickstart;
+ 496              		.loc 1 242 3 is_stmt 1 view .LVU146
+ 243:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 244:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Check for parameters */
+ 245:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   assert_param(IS_RCC_PLLI2SN_VALUE(PLLI2SInit->PLLI2SN));
+ 497              		.loc 1 245 3 view .LVU147
+ 246:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   assert_param(IS_RCC_PLLI2SR_VALUE(PLLI2SInit->PLLI2SR));
+ 498              		.loc 1 246 3 view .LVU148
+ 247:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 248:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Disable the PLLI2S */
+ 249:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   __HAL_RCC_PLLI2S_DISABLE();
+ 499              		.loc 1 249 3 view .LVU149
+ 500 0004 1D4B     		ldr	r3, .L43
+ 501 0006 0022     		movs	r2, #0
+ 502 0008 9A66     		str	r2, [r3, #104]
+ 250:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 251:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Wait till PLLI2S is disabled */
+ 252:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   tickstart = HAL_GetTick();
+ 503              		.loc 1 252 3 view .LVU150
+ 504              		.loc 1 252 15 is_stmt 0 view .LVU151
+ 505 000a FFF7FEFF 		bl	HAL_GetTick
+ 506              	.LVL35:
+ 507              		.loc 1 252 15 view .LVU152
+ 508 000e 0446     		mov	r4, r0
+ 509              	.LVL36:
+ 253:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   while(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLI2SRDY) != RESET)
+ 510              		.loc 1 253 3 is_stmt 1 view .LVU153
+ 511              	.L33:
+ 512              		.loc 1 253 8 view .LVU154
+ 513              		.loc 1 253 9 is_stmt 0 view .LVU155
+ 514 0010 1B4B     		ldr	r3, .L43+4
+ 515 0012 1B68     		ldr	r3, [r3]
+ 516              		.loc 1 253 8 view .LVU156
+ 517 0014 13F0006F 		tst	r3, #134217728
+ 518 0018 06D0     		beq	.L41
+ 254:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 255:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     if((HAL_GetTick() - tickstart ) > PLLI2S_TIMEOUT_VALUE)
+ 519              		.loc 1 255 5 is_stmt 1 view .LVU157
+ 520              		.loc 1 255 9 is_stmt 0 view .LVU158
+ 521 001a FFF7FEFF 		bl	HAL_GetTick
+ 522              	.LVL37:
+ 523              		.loc 1 255 23 view .LVU159
+ 524 001e 001B     		subs	r0, r0, r4
+ 525              		.loc 1 255 7 view .LVU160
+ 526 0020 0228     		cmp	r0, #2
+ 527 0022 F5D9     		bls	.L33
+ 256:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 257:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* return in case of Timeout detected */
+ 258:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       return HAL_TIMEOUT;
+ 528              		.loc 1 258 14 view .LVU161
+ 529 0024 0320     		movs	r0, #3
+ 530              	.L34:
+ 259:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ARM GAS  /tmp/ccINzGhC.s 			page 34
+
+
+ 260:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 261:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 262:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Configure the PLLI2S division factors */
+ 263:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* PLLI2S_VCO = f(VCO clock) = f(PLLI2S clock input) x PLLI2SN */
+ 264:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* I2SRCLK = PLLI2S_VCO / PLLI2SR */
+ 265:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   __HAL_RCC_PLLI2S_CONFIG(PLLI2SInit->PLLI2SN, PLLI2SInit->PLLI2SR);
+ 266:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 267:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Enable the PLLI2S */
+ 268:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   __HAL_RCC_PLLI2S_ENABLE();
+ 269:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 270:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Wait till PLLI2S is ready */
+ 271:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   tickstart = HAL_GetTick();
+ 272:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   while(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLI2SRDY) == RESET)
+ 273:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 274:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     if((HAL_GetTick() - tickstart ) > PLLI2S_TIMEOUT_VALUE)
+ 275:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 276:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* return in case of Timeout detected */
+ 277:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       return HAL_TIMEOUT;
+ 278:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ 279:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 280:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 281:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****  return HAL_OK;
+ 282:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** }
+ 531              		.loc 1 282 1 view .LVU162
+ 532 0026 38BD     		pop	{r3, r4, r5, pc}
+ 533              	.LVL38:
+ 534              	.L41:
+ 265:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 535              		.loc 1 265 3 is_stmt 1 view .LVU163
+ 536 0028 2B68     		ldr	r3, [r5]
+ 537              	.LVL39:
+ 538              	.LBB24:
+ 539              	.LBI24:
+ 981:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 540              		.loc 2 981 31 view .LVU164
+ 541              	.LBB25:
+ 983:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 542              		.loc 2 983 3 view .LVU165
+ 988:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 543              		.loc 2 988 4 view .LVU166
+ 544 002a 47F6C072 		movw	r2, #32704
+ 545              		.syntax unified
+ 546              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 547 002e 92FAA2F2 		rbit r2, r2
+ 548              	@ 0 "" 2
+ 549              	.LVL40:
+ 550              		.loc 2 1001 3 view .LVU167
+ 551              		.loc 2 1001 3 is_stmt 0 view .LVU168
+ 552              		.thumb
+ 553              		.syntax unified
+ 554              	.LBE25:
+ 555              	.LBE24:
+ 265:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 556              		.loc 1 265 3 view .LVU169
+ 557 0032 B2FA82F2 		clz	r2, r2
+ 558 0036 9340     		lsls	r3, r3, r2
+ 559 0038 6968     		ldr	r1, [r5, #4]
+ARM GAS  /tmp/ccINzGhC.s 			page 35
+
+
+ 560              	.LVL41:
+ 561              	.LBB26:
+ 562              	.LBI26:
+ 981:Drivers/CMSIS/Include/cmsis_gcc.h **** {
+ 563              		.loc 2 981 31 is_stmt 1 view .LVU170
+ 564              	.LBB27:
+ 983:Drivers/CMSIS/Include/cmsis_gcc.h **** 
+ 565              		.loc 2 983 3 view .LVU171
+ 988:Drivers/CMSIS/Include/cmsis_gcc.h **** #else
+ 566              		.loc 2 988 4 view .LVU172
+ 567 003a 4FF0E042 		mov	r2, #1879048192
+ 568              		.syntax unified
+ 569              	@ 988 "Drivers/CMSIS/Include/cmsis_gcc.h" 1
+ 570 003e 92FAA2F2 		rbit r2, r2
+ 571              	@ 0 "" 2
+ 572              	.LVL42:
+ 573              		.loc 2 1001 3 view .LVU173
+ 574              		.loc 2 1001 3 is_stmt 0 view .LVU174
+ 575              		.thumb
+ 576              		.syntax unified
+ 577              	.LBE27:
+ 578              	.LBE26:
+ 265:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 579              		.loc 1 265 3 view .LVU175
+ 580 0042 B2FA82F2 		clz	r2, r2
+ 581 0046 01FA02F2 		lsl	r2, r1, r2
+ 582 004a 1343     		orrs	r3, r3, r2
+ 583 004c 0C4A     		ldr	r2, .L43+4
+ 584 004e C2F88430 		str	r3, [r2, #132]
+ 268:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 585              		.loc 1 268 3 is_stmt 1 view .LVU176
+ 586 0052 0A4B     		ldr	r3, .L43
+ 587 0054 0122     		movs	r2, #1
+ 588 0056 9A66     		str	r2, [r3, #104]
+ 271:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   while(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLI2SRDY) == RESET)
+ 589              		.loc 1 271 3 view .LVU177
+ 271:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   while(__HAL_RCC_GET_FLAG(RCC_FLAG_PLLI2SRDY) == RESET)
+ 590              		.loc 1 271 15 is_stmt 0 view .LVU178
+ 591 0058 FFF7FEFF 		bl	HAL_GetTick
+ 592              	.LVL43:
+ 593 005c 0446     		mov	r4, r0
+ 594              	.LVL44:
+ 272:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 595              		.loc 1 272 3 is_stmt 1 view .LVU179
+ 596              	.L36:
+ 272:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 597              		.loc 1 272 8 view .LVU180
+ 272:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 598              		.loc 1 272 9 is_stmt 0 view .LVU181
+ 599 005e 084B     		ldr	r3, .L43+4
+ 600 0060 1B68     		ldr	r3, [r3]
+ 272:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 601              		.loc 1 272 8 view .LVU182
+ 602 0062 13F0006F 		tst	r3, #134217728
+ 603 0066 06D1     		bne	.L42
+ 274:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 604              		.loc 1 274 5 is_stmt 1 view .LVU183
+ARM GAS  /tmp/ccINzGhC.s 			page 36
+
+
+ 274:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 605              		.loc 1 274 9 is_stmt 0 view .LVU184
+ 606 0068 FFF7FEFF 		bl	HAL_GetTick
+ 607              	.LVL45:
+ 274:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 608              		.loc 1 274 23 view .LVU185
+ 609 006c 001B     		subs	r0, r0, r4
+ 274:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 610              		.loc 1 274 7 view .LVU186
+ 611 006e 0228     		cmp	r0, #2
+ 612 0070 F5D9     		bls	.L36
+ 277:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ 613              		.loc 1 277 14 view .LVU187
+ 614 0072 0320     		movs	r0, #3
+ 615 0074 D7E7     		b	.L34
+ 616              	.L42:
+ 281:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** }
+ 617              		.loc 1 281 9 view .LVU188
+ 618 0076 0020     		movs	r0, #0
+ 619 0078 D5E7     		b	.L34
+ 620              	.L44:
+ 621 007a 00BF     		.align	2
+ 622              	.L43:
+ 623 007c 00004742 		.word	1111949312
+ 624 0080 00380240 		.word	1073887232
+ 625              		.cfi_endproc
+ 626              	.LFE74:
+ 628              		.section	.text.HAL_RCCEx_DisablePLLI2S,"ax",%progbits
+ 629              		.align	1
+ 630              		.global	HAL_RCCEx_DisablePLLI2S
+ 631              		.syntax unified
+ 632              		.thumb
+ 633              		.thumb_func
+ 634              		.fpu softvfp
+ 636              	HAL_RCCEx_DisablePLLI2S:
+ 637              	.LFB75:
+ 283:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 284:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** /**
+ 285:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @brief  Disable PLLI2S.
+ 286:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   * @retval HAL status
+ 287:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   */
+ 288:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** HAL_StatusTypeDef HAL_RCCEx_DisablePLLI2S(void)
+ 289:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** {
+ 638              		.loc 1 289 1 is_stmt 1 view -0
+ 639              		.cfi_startproc
+ 640              		@ args = 0, pretend = 0, frame = 0
+ 641              		@ frame_needed = 0, uses_anonymous_args = 0
+ 642 0000 10B5     		push	{r4, lr}
+ 643              	.LCFI5:
+ 644              		.cfi_def_cfa_offset 8
+ 645              		.cfi_offset 4, -8
+ 646              		.cfi_offset 14, -4
+ 290:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   uint32_t tickstart;
+ 647              		.loc 1 290 3 view .LVU190
+ 291:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 292:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Disable the PLLI2S */
+ 293:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   __HAL_RCC_PLLI2S_DISABLE();
+ARM GAS  /tmp/ccINzGhC.s 			page 37
+
+
+ 648              		.loc 1 293 3 view .LVU191
+ 649 0002 0A4B     		ldr	r3, .L52
+ 650 0004 0022     		movs	r2, #0
+ 651 0006 9A66     		str	r2, [r3, #104]
+ 294:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 295:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   /* Wait till PLLI2S is disabled */
+ 296:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   tickstart = HAL_GetTick();
+ 652              		.loc 1 296 3 view .LVU192
+ 653              		.loc 1 296 15 is_stmt 0 view .LVU193
+ 654 0008 FFF7FEFF 		bl	HAL_GetTick
+ 655              	.LVL46:
+ 656 000c 0446     		mov	r4, r0
+ 657              	.LVL47:
+ 297:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   while(READ_BIT(RCC->CR, RCC_CR_PLLI2SRDY) != RESET)
+ 658              		.loc 1 297 3 is_stmt 1 view .LVU194
+ 659              	.L46:
+ 660              		.loc 1 297 8 view .LVU195
+ 661              		.loc 1 297 9 is_stmt 0 view .LVU196
+ 662 000e 084B     		ldr	r3, .L52+4
+ 663 0010 1B68     		ldr	r3, [r3]
+ 664              		.loc 1 297 8 view .LVU197
+ 665 0012 13F0006F 		tst	r3, #134217728
+ 666 0016 06D0     		beq	.L51
+ 298:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   {
+ 299:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     if((HAL_GetTick() - tickstart) > PLLI2S_TIMEOUT_VALUE)
+ 667              		.loc 1 299 5 is_stmt 1 view .LVU198
+ 668              		.loc 1 299 9 is_stmt 0 view .LVU199
+ 669 0018 FFF7FEFF 		bl	HAL_GetTick
+ 670              	.LVL48:
+ 671              		.loc 1 299 23 view .LVU200
+ 672 001c 001B     		subs	r0, r0, r4
+ 673              		.loc 1 299 7 view .LVU201
+ 674 001e 0228     		cmp	r0, #2
+ 675 0020 F5D9     		bls	.L46
+ 300:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     {
+ 301:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       /* return in case of Timeout detected */
+ 302:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****       return HAL_TIMEOUT;
+ 676              		.loc 1 302 14 view .LVU202
+ 677 0022 0320     		movs	r0, #3
+ 678 0024 00E0     		b	.L47
+ 679              	.L51:
+ 303:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****     }
+ 304:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   }
+ 305:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** 
+ 306:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c ****   return HAL_OK;
+ 680              		.loc 1 306 10 view .LVU203
+ 681 0026 0020     		movs	r0, #0
+ 682              	.L47:
+ 307:Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c **** }
+ 683              		.loc 1 307 1 view .LVU204
+ 684 0028 10BD     		pop	{r4, pc}
+ 685              	.LVL49:
+ 686              	.L53:
+ 687              		.loc 1 307 1 view .LVU205
+ 688 002a 00BF     		.align	2
+ 689              	.L52:
+ 690 002c 00004742 		.word	1111949312
+ARM GAS  /tmp/ccINzGhC.s 			page 38
+
+
+ 691 0030 00380240 		.word	1073887232
+ 692              		.cfi_endproc
+ 693              	.LFE75:
+ 695              		.text
+ 696              	.Letext0:
+ 697              		.file 3 "/home/onur/STM32Toolchain/gcc-arm/arm-none-eabi/include/machine/_default_types.h"
+ 698              		.file 4 "/home/onur/STM32Toolchain/gcc-arm/arm-none-eabi/include/sys/_stdint.h"
+ 699              		.file 5 "Drivers/CMSIS/Device/ST/STM32F2xx/Include/stm32f215xx.h"
+ 700              		.file 6 "Drivers/CMSIS/Device/ST/STM32F2xx/Include/stm32f2xx.h"
+ 701              		.file 7 "Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_def.h"
+ 702              		.file 8 "Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal_rcc_ex.h"
+ 703              		.file 9 "Drivers/STM32F2xx_HAL_Driver/Inc/stm32f2xx_hal.h"
+ARM GAS  /tmp/ccINzGhC.s 			page 39
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32f2xx_hal_rcc_ex.c
+     /tmp/ccINzGhC.s:16     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 $t
+     /tmp/ccINzGhC.s:24     .text.HAL_RCCEx_PeriphCLKConfig:0000000000000000 HAL_RCCEx_PeriphCLKConfig
+     /tmp/ccINzGhC.s:362    .text.HAL_RCCEx_PeriphCLKConfig:0000000000000168 $d
+     /tmp/ccINzGhC.s:369    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 $t
+     /tmp/ccINzGhC.s:376    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000000 HAL_RCCEx_GetPeriphCLKConfig
+     /tmp/ccINzGhC.s:468    .text.HAL_RCCEx_GetPeriphCLKConfig:0000000000000048 $d
+     /tmp/ccINzGhC.s:473    .text.HAL_RCCEx_EnablePLLI2S:0000000000000000 $t
+     /tmp/ccINzGhC.s:480    .text.HAL_RCCEx_EnablePLLI2S:0000000000000000 HAL_RCCEx_EnablePLLI2S
+     /tmp/ccINzGhC.s:623    .text.HAL_RCCEx_EnablePLLI2S:000000000000007c $d
+     /tmp/ccINzGhC.s:629    .text.HAL_RCCEx_DisablePLLI2S:0000000000000000 $t
+     /tmp/ccINzGhC.s:636    .text.HAL_RCCEx_DisablePLLI2S:0000000000000000 HAL_RCCEx_DisablePLLI2S
+     /tmp/ccINzGhC.s:690    .text.HAL_RCCEx_DisablePLLI2S:000000000000002c $d
+
+UNDEFINED SYMBOLS
+HAL_GetTick

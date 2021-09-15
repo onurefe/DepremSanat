@@ -1,0 +1,11 @@
+EESchema-DOCLIB  Version 2.0
+#
+$CMP AP2210
+D 300mA RF ULDO REGULATOR
+$ENDCMP
+#
+$CMP LR9102G
+D Low Noise 300ma LDO Regulator
+$ENDCMP
+#
+#End Doc Library

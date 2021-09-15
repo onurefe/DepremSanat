@@ -1,0 +1,11 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "cortex-debug.armToolchainPath": "/home/onur/STM32Toolchain/gcc-arm/bin",
+        "cortex-debug.openocdPath": "/home/onur/STM32Toolchain/openocd/bin/openocd"
+    }
+}

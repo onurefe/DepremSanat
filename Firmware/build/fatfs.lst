@@ -1,0 +1,193 @@
+ARM GAS  /tmp/ccXAJGy0.s 			page 1
+
+
+   1              		.cpu cortex-m3
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 1
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"fatfs.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.MX_FATFS_Init,"ax",%progbits
+  16              		.align	1
+  17              		.global	MX_FATFS_Init
+  18              		.arch armv7-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	MX_FATFS_Init:
+  25              	.LFB72:
+  26              		.file 1 "Src/fatfs.c"
+   1:Src/fatfs.c   **** /**
+   2:Src/fatfs.c   ****   ******************************************************************************
+   3:Src/fatfs.c   ****   * @file   fatfs.c
+   4:Src/fatfs.c   ****   * @brief  Code for fatfs applications
+   5:Src/fatfs.c   ****   ******************************************************************************
+   6:Src/fatfs.c   ****   * @attention
+   7:Src/fatfs.c   ****   *
+   8:Src/fatfs.c   ****   * <h2><center>&copy; Copyright (c) 2021 STMicroelectronics.
+   9:Src/fatfs.c   ****   * All rights reserved.</center></h2>
+  10:Src/fatfs.c   ****   *
+  11:Src/fatfs.c   ****   * This software component is licensed by ST under Ultimate Liberty license
+  12:Src/fatfs.c   ****   * SLA0044, the "License"; You may not use this file except in compliance with
+  13:Src/fatfs.c   ****   * the License. You may obtain a copy of the License at:
+  14:Src/fatfs.c   ****   *                             www.st.com/SLA0044
+  15:Src/fatfs.c   ****   *
+  16:Src/fatfs.c   ****   ******************************************************************************
+  17:Src/fatfs.c   ****   */
+  18:Src/fatfs.c   **** 
+  19:Src/fatfs.c   **** #include "fatfs.h"
+  20:Src/fatfs.c   **** 
+  21:Src/fatfs.c   **** uint8_t retSD;    /* Return value for SD */
+  22:Src/fatfs.c   **** char SDPath[4];   /* SD logical drive path */
+  23:Src/fatfs.c   **** FATFS SDFatFS;    /* File system object for SD logical drive */
+  24:Src/fatfs.c   **** FIL SDFile;       /* File object for SD */
+  25:Src/fatfs.c   **** 
+  26:Src/fatfs.c   **** /* USER CODE BEGIN Variables */
+  27:Src/fatfs.c   **** 
+  28:Src/fatfs.c   **** /* USER CODE END Variables */
+  29:Src/fatfs.c   **** 
+  30:Src/fatfs.c   **** void MX_FATFS_Init(void)
+  31:Src/fatfs.c   **** {
+  27              		.loc 1 31 1 view -0
+ARM GAS  /tmp/ccXAJGy0.s 			page 2
+
+
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31 0000 08B5     		push	{r3, lr}
+  32              	.LCFI0:
+  33              		.cfi_def_cfa_offset 8
+  34              		.cfi_offset 3, -8
+  35              		.cfi_offset 14, -4
+  32:Src/fatfs.c   ****   /*## FatFS: Link the SD driver ###########################*/
+  33:Src/fatfs.c   ****   retSD = FATFS_LinkDriver(&SD_Driver, SDPath);
+  36              		.loc 1 33 3 view .LVU1
+  37              		.loc 1 33 11 is_stmt 0 view .LVU2
+  38 0002 0349     		ldr	r1, .L3
+  39 0004 0348     		ldr	r0, .L3+4
+  40 0006 FFF7FEFF 		bl	FATFS_LinkDriver
+  41              	.LVL0:
+  42              		.loc 1 33 9 view .LVU3
+  43 000a 034B     		ldr	r3, .L3+8
+  44 000c 1870     		strb	r0, [r3]
+  34:Src/fatfs.c   **** 
+  35:Src/fatfs.c   ****   /* USER CODE BEGIN Init */
+  36:Src/fatfs.c   ****   /* additional user code for init */
+  37:Src/fatfs.c   ****   /* USER CODE END Init */
+  38:Src/fatfs.c   **** }
+  45              		.loc 1 38 1 view .LVU4
+  46 000e 08BD     		pop	{r3, pc}
+  47              	.L4:
+  48              		.align	2
+  49              	.L3:
+  50 0010 00000000 		.word	.LANCHOR0
+  51 0014 00000000 		.word	SD_Driver
+  52 0018 00000000 		.word	.LANCHOR1
+  53              		.cfi_endproc
+  54              	.LFE72:
+  56              		.section	.text.get_fattime,"ax",%progbits
+  57              		.align	1
+  58              		.global	get_fattime
+  59              		.syntax unified
+  60              		.thumb
+  61              		.thumb_func
+  62              		.fpu softvfp
+  64              	get_fattime:
+  65              	.LFB73:
+  39:Src/fatfs.c   **** 
+  40:Src/fatfs.c   **** /**
+  41:Src/fatfs.c   ****   * @brief  Gets Time from RTC
+  42:Src/fatfs.c   ****   * @param  None
+  43:Src/fatfs.c   ****   * @retval Time in DWORD
+  44:Src/fatfs.c   ****   */
+  45:Src/fatfs.c   **** DWORD get_fattime(void)
+  46:Src/fatfs.c   **** {
+  66              		.loc 1 46 1 is_stmt 1 view -0
+  67              		.cfi_startproc
+  68              		@ args = 0, pretend = 0, frame = 0
+  69              		@ frame_needed = 0, uses_anonymous_args = 0
+  70              		@ link register save eliminated.
+  47:Src/fatfs.c   ****   /* USER CODE BEGIN get_fattime */
+ARM GAS  /tmp/ccXAJGy0.s 			page 3
+
+
+  48:Src/fatfs.c   ****   return 0;
+  71              		.loc 1 48 3 view .LVU6
+  49:Src/fatfs.c   ****   /* USER CODE END get_fattime */
+  50:Src/fatfs.c   **** }
+  72              		.loc 1 50 1 is_stmt 0 view .LVU7
+  73 0000 0020     		movs	r0, #0
+  74 0002 7047     		bx	lr
+  75              		.cfi_endproc
+  76              	.LFE73:
+  78              		.global	SDFile
+  79              		.global	SDFatFS
+  80              		.global	SDPath
+  81              		.global	retSD
+  82              		.section	.bss.SDFatFS,"aw",%nobits
+  83              		.align	2
+  86              	SDFatFS:
+  87 0000 00000000 		.space	4144
+  87      00000000 
+  87      00000000 
+  87      00000000 
+  87      00000000 
+  88              		.section	.bss.SDFile,"aw",%nobits
+  89              		.align	2
+  92              	SDFile:
+  93 0000 00000000 		.space	4140
+  93      00000000 
+  93      00000000 
+  93      00000000 
+  93      00000000 
+  94              		.section	.bss.SDPath,"aw",%nobits
+  95              		.align	2
+  96              		.set	.LANCHOR0,. + 0
+  99              	SDPath:
+ 100 0000 00000000 		.space	4
+ 101              		.section	.bss.retSD,"aw",%nobits
+ 102              		.set	.LANCHOR1,. + 0
+ 105              	retSD:
+ 106 0000 00       		.space	1
+ 107              		.text
+ 108              	.Letext0:
+ 109              		.file 2 "Middlewares/Third_Party/FatFs/src/integer.h"
+ 110              		.file 3 "/home/onur/STM32Toolchain/gcc-arm/arm-none-eabi/include/machine/_default_types.h"
+ 111              		.file 4 "/home/onur/STM32Toolchain/gcc-arm/arm-none-eabi/include/sys/_stdint.h"
+ 112              		.file 5 "Middlewares/Third_Party/FatFs/src/ff.h"
+ 113              		.file 6 "Middlewares/Third_Party/FatFs/src/diskio.h"
+ 114              		.file 7 "Middlewares/Third_Party/FatFs/src/ff_gen_drv.h"
+ 115              		.file 8 "Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.h"
+ 116              		.file 9 "Inc/fatfs.h"
+ARM GAS  /tmp/ccXAJGy0.s 			page 4
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 fatfs.c
+     /tmp/ccXAJGy0.s:16     .text.MX_FATFS_Init:0000000000000000 $t
+     /tmp/ccXAJGy0.s:24     .text.MX_FATFS_Init:0000000000000000 MX_FATFS_Init
+     /tmp/ccXAJGy0.s:50     .text.MX_FATFS_Init:0000000000000010 $d
+     /tmp/ccXAJGy0.s:57     .text.get_fattime:0000000000000000 $t
+     /tmp/ccXAJGy0.s:64     .text.get_fattime:0000000000000000 get_fattime
+     /tmp/ccXAJGy0.s:92     .bss.SDFile:0000000000000000 SDFile
+     /tmp/ccXAJGy0.s:86     .bss.SDFatFS:0000000000000000 SDFatFS
+     /tmp/ccXAJGy0.s:99     .bss.SDPath:0000000000000000 SDPath
+     /tmp/ccXAJGy0.s:105    .bss.retSD:0000000000000000 retSD
+     /tmp/ccXAJGy0.s:83     .bss.SDFatFS:0000000000000000 $d
+     /tmp/ccXAJGy0.s:89     .bss.SDFile:0000000000000000 $d
+     /tmp/ccXAJGy0.s:95     .bss.SDPath:0000000000000000 $d
+     /tmp/ccXAJGy0.s:106    .bss.retSD:0000000000000000 $d
+
+UNDEFINED SYMBOLS
+FATFS_LinkDriver
+SD_Driver

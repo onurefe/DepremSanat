@@ -1,0 +1,100 @@
+{
+    "env": {
+        "____________________USER_FIELDS_CAN_BE_MODIFIED____________________": "",
+        "user_cSources": [],
+        "user_asmSources": [],
+        "user_ldSources": [],
+        "user_cIncludes": [],
+        "user_asmIncludes": [],
+        "user_ldIncludes": [],
+        "user_cDefines": [],
+        "user_asmDefines": [],
+        "user_cFlags": [],
+        "user_asmFlags": [],
+        "user_ldFlags": [],
+        "____________________DO_NOT_MODIFY_FIELDS_BELOW____________________": "",
+        "cubemx_sourceFiles": [
+            "Src/main.c",
+            "Src/bsp_driver_sd.c",
+            "Src/fatfs.c",
+            "Src/fatfs_platform.c",
+            "Src/stm32f2xx_it.c",
+            "Src/stm32f2xx_hal_msp.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_dac.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_dac_ex.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_rcc_ex.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_cortex.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_flash.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_flash_ex.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_pwr.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_pwr_ex.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_gpio.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_dma.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_dma_ex.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_exti.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_ll_sdmmc.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_sd.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_tim.c",
+            "Drivers/STM32F2xx_HAL_Driver/Src/stm32f2xx_hal_tim_ex.c",
+            "Src/system_stm32f2xx.c",
+            "Middlewares/Third_Party/FatFs/src/diskio.c",
+            "Middlewares/Third_Party/FatFs/src/ff.c",
+            "Middlewares/Third_Party/FatFs/src/ff_gen_drv.c",
+            "Middlewares/Third_Party/FatFs/src/option/syscall.c",
+            "Middlewares/Third_Party/FatFs/src/drivers/sd_diskio.c",
+            "startup_stm32f215xx.s"
+        ],
+        "cubemx_includes": [
+            "Inc",
+            "Drivers/STM32F2xx_HAL_Driver/Inc",
+            "Drivers/STM32F2xx_HAL_Driver/Inc/Legacy",
+            "Middlewares/Third_Party/FatFs/src",
+            "Middlewares/Third_Party/FatFs/src/drivers",
+            "Drivers/CMSIS/Device/ST/STM32F2xx/Include",
+            "Drivers/CMSIS/Include"
+        ],
+        "cubemx_defines": [
+            "USE_HAL_DRIVER",
+            "STM32F215xx"
+        ],
+        "gccExePath": "/home/onur/STM32Toolchain/gcc-arm/bin/arm-none-eabi-gcc",
+        "gccIncludePath": "/home/onur/STM32Toolchain/gcc-arm/lib/gcc/arm-none-eabi/10.2.1/include"
+    },
+    "configurations": [
+        {
+            "name": "workspace",
+            "intelliSenseMode": "msvc-x64",
+            "includePath": [
+                "${workspaceFolder}",
+                "${cubemx_includes}",
+                "${gccIncludePath}",
+                "${user_cIncludes}",
+                "${user_asmIncludes}",
+                "${user_ldIncludes}"
+            ],
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "${cubemx_includes}",
+                    "${gccIncludePath}",
+                    "${user_cIncludes}",
+                    "${user_asmIncludes}",
+                    "${user_ldIncludes}"
+                ],
+                "limitSymbolsToIncludedHeaders": true
+            },
+            "defines": [
+                "${cubemx_defines}",
+                "${user_cDefines}",
+                "${user_asmDefines}"
+            ],
+            "forcedInclude": [],
+            "compilerPath": "${gccExePath}",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

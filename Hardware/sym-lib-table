@@ -1,0 +1,4 @@
+(sym_lib_table
+  (lib (name oe_flow)(type Legacy)(uri /home/onur/Desktop/GitRepos/Flow/Flow1D/Hardware/oe_flow.lib)(options "")(descr ""))
+  (lib (name oe_ds)(type Legacy)(uri ${KIPRJMOD}/oe_ds.lib)(options "")(descr ""))
+)
